@@ -147,7 +147,7 @@ The Developer Console alternately allows you to edit the entire skill model in J
 }
 ```
 
-Once you’re done editing the interaction model don't forget to save and build the model.
+Once you’re done editing the interaction model don't forget to save and build the model..
  
 Let's move on to the skill configuration section. Under “Endpoint” select “AWS Lambda ARN” and paste in the ARN of the function you created previously. The rest of the settings can be left at their default values. Click “Save Endpoints” and proceed to the next section.
  
