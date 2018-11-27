@@ -1,7 +1,7 @@
 {
   "interactionModel": {
     "languageModel": {
-      "invocationName": "lieblingsfarbe",
+      "invocationName": "CalendarCompanion",
       "intents": [
         {
           "name": "AMAZON.CancelIntent",
