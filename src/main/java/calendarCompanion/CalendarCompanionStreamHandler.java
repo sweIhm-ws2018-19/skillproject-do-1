@@ -3,11 +3,10 @@ package calendarCompanion;
 import com.amazon.ask.Skill;
 import com.amazon.ask.SkillStreamHandler;
 import com.amazon.ask.Skills;
-import main.java.colorpicker.handlers.FallbackIntentHandler;
-import main.java.colorpicker.handlers.HelpIntentHandler;
-import main.java.colorpicker.handlers.LaunchRequestHandler;
-import main.java.colorpicker.handlers.SessionEndedRequestHandler;
-import main.java.colorpicker.handlers.CancelandStopIntentHandler;
+import calendarCompanion.handlers.FallbackIntentHandler;
+import calendarCompanion.handlers.HelpIntentHandler;
+import calendarCompanion.handlers.LaunchRequestHandler;
+import calendarCompanion.handlers.CancelandStopIntentHandler;
 
 public class CalendarCompanionStreamHandler extends SkillStreamHandler {
 
@@ -16,7 +15,6 @@ public class CalendarCompanionStreamHandler extends SkillStreamHandler {
                 .addRequestHandlers(
                         new LaunchRequestHandler(),
                         new CancelandStopIntentHandler(),
-                        new SessionEndedRequestHandler(),
                         new HelpIntentHandler(),
                         new FallbackIntentHandler())
                 // Add your skill id below
