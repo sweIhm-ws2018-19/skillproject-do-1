@@ -23,6 +23,7 @@ import static com.amazon.ask.request.Predicates.intentName;
 
 public class WhatsMyColorIntentHandler implements RequestHandler {
     public static final String COLOR_KEY = "COLOR";
+
     public static final String COLOR_SLOT = "Color";
 
     @Override
