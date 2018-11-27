@@ -1,11 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>alexa-skills-kit-samples</groupId>
-  <artifactId>colorpicker</artifactId>
+  <groupId>skillproject-do-1</groupId>
+  <artifactId>CalendarCompanion</artifactId>
   <packaging>jar</packaging>
-  <version>1.0</version>
-  <name>colorpicker</name>
+  <version>0.1</version>
+  <name>CalendarCompanion</name>
   <url>http://developer.amazon.com/ask</url>
   <licenses>
     <license>
