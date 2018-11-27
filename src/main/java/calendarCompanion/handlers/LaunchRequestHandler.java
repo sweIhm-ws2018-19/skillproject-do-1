@@ -22,7 +22,7 @@ public class LaunchRequestHandler implements RequestHandler {
         return input.getResponseBuilder()
                 .withSimpleCard("CalendarSession", speechText)
                 .withSpeech(speechText)
-                .withReprompt(speechText)
+                .withReprompt(repromtText)
                 .build();
     }
 }
