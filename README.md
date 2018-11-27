@@ -1,6 +1,6 @@
-﻿# Alexa Skills Kit SDK Sample - Color Picker - Lieblingsfarbe (deutsche Übersetzung)
-A simple [AWS Lambda](http://aws.amazon.com/lambda) function that demonstrates how to write a color picker skill for the Amazon Echo using the Alexa SDK.
+﻿# Calendar Companion - the little big helper for your everyday's tasks
 
+<<<<<<< HEAD
 ## Concepts
 This sample shows how to create a Lambda function for handling Alexa Skill requests that:
 
@@ -154,3 +154,7 @@ Let's move on to the skill configuration section. Under “Endpoint” select �
 Finally you're ready to test the skill! In the “Test” tab of the developer console you can simulate requests, in text and voice form, to your skill. Use the invocation name along with one of the sample utterances we just configured as a guide. You should also be able to go to the [Echo webpage](http://echo.amazon.com/#skills) and see your skill listed under “Your Skills”, where you can enable the skill on your account for testing from an Alexa enabled device.
  
 At this point, feel free to start experimenting with your Intent Schema as well as the corresponding request handlers in your skill's implementation. Once you're finished iterating, you can optionally choose to move on to the process of getting your skill certified and published so it can be used by Alexa users worldwide.
+=======
+## Konzept
+Der Calendar Companion übernimmt die Kontrolle über deinen Kalender. Er hilft dir ToDo's für jeden Tag festzulegen und kümmert sich um deine anstehenden Termine indem er Erinnerungen schickt. Der Kalender lässt sich ganz einfach über die Alexa Sprachsteuerung bedienen. 
+>>>>>>> refs/remotes/origin/master
