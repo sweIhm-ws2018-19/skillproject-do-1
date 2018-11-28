@@ -1,12 +1,9 @@
 package calendarCompanion;
 
+import calendarCompanion.handlers.*;
 import com.amazon.ask.Skill;
 import com.amazon.ask.SkillStreamHandler;
 import com.amazon.ask.Skills;
-import calendarCompanion.handlers.FallbackIntentHandler;
-import calendarCompanion.handlers.HelpIntentHandler;
-import calendarCompanion.handlers.LaunchRequestHandler;
-import calendarCompanion.handlers.CancelandStopIntentHandler;
 
 public class CalendarCompanionStreamHandler extends SkillStreamHandler {
 
@@ -16,7 +13,9 @@ public class CalendarCompanionStreamHandler extends SkillStreamHandler {
                         new LaunchRequestHandler(),
                         new CancelandStopIntentHandler(),
                         new HelpIntentHandler(),
-                        new FallbackIntentHandler())
+                        new FallbackIntentHandler(),
+                        new AddToDoOnWeekDayHandler(),
+                        new GetToDosOnWeekDayHandler())
                 .withTableName("toDoData")
                 .withAutoCreateTable(true)
                 // Add your skill id below
