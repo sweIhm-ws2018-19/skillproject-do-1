@@ -1,23 +1,25 @@
 package calendarCompanion.handlers;
 
-import com.amazon.ask.attributes.AttributesManager;
+import calendarCompanion.model.ToDoListItemOnWeekDay;
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
 import com.amazon.ask.model.*;
 import com.amazon.ask.response.ResponseBuilder;
-import calendarCompanion.model.ToDoList;
 
 import calendarCompanion.model.PhrasesAndConstants;
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 
 import java.util.*;
 
 
 import static com.amazon.ask.request.Predicates.intentName;
 
-public class AddToDoIntentHandler implements RequestHandler {
+public class AddToDoOnWeekDayHandler implements RequestHandler {
     @Override
     public boolean canHandle(HandlerInput input) {
-        return input.matches(intentName("AddToDoIntent"));
+        return input.matches(intentName("AddToDosOnWeekDayIntent"));
     }
 
     @Override
@@ -35,24 +37,14 @@ public class AddToDoIntentHandler implements RequestHandler {
 
 
         if (wochenTag.getValue() != null && wochenTag.getResolutions().toString().contains("ER_SUCCESS_MATCH")) {
+            AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
+            DynamoDBMapper mapper = new DynamoDBMapper(client);
 
-            //ToDoListe für einen bestimmten Tag aus Datenbank holen
-            AttributesManager attributesManager = input.getAttributesManager();
-            Map<String, Object> persistentAttributes = attributesManager.getPersistentAttributes();
-            ToDoList toDoListOnWeekDay  = (ToDoList)persistentAttributes.get(wochenTag.getValue());
-            List<String> newToDoList = toDoListOnWeekDay.getToDos();
-            //todoo an Liste anhängen
-            newToDoList.add(toDo.getValue());
-            //Model für datenbank bauen
-            toDoListOnWeekDay.setToDos(newToDoList);
-
-            // Store the user's favorite color in the Session and store in DB then create response.
-            input.getAttributesManager().setSessionAttributes(Collections.singletonMap(wochenTag.getValue(), toDoListOnWeekDay));
-
-            //store persistent
-            persistentAttributes.put(wochenTag.getValue(), toDoListOnWeekDay);
-            attributesManager.setPersistentAttributes(persistentAttributes);
-            attributesManager.savePersistentAttributes();
+            //TodoListItemOnWeekDay in Datenbank speichern
+            ToDoListItemOnWeekDay toDoListItemOnWeekDay = new ToDoListItemOnWeekDay();
+            toDoListItemOnWeekDay.setWeekDay(wochenTag.getValue());
+            toDoListItemOnWeekDay.setToDo(toDo.getValue());
+            mapper.save(toDoListItemOnWeekDay);
 
             String speechText =
                     String.format("%s wurde zu deiner ToDoListe am %s hinzugefügt.", toDo.getValue(), wochenTag.getValue());
@@ -65,10 +57,9 @@ public class AddToDoIntentHandler implements RequestHandler {
             responseBuilder.withSimpleCard(PhrasesAndConstants.CARD_TITLE, speechText)
                     .withSpeech(speechText)
                     .withShouldEndSession(false);
-
         }
 
         return responseBuilder.build();
     }
-
 }
+

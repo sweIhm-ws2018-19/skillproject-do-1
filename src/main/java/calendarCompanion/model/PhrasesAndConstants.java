@@ -12,3 +12,4 @@ public class PhrasesAndConstants {
     public static final String TODOS_SIND = "Deine Todos sind";
     
 }
+

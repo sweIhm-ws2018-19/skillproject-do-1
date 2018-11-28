@@ -1,8 +1,12 @@
 {
   "interactionModel": {
     "languageModel": {
-      "invocationName": "lieblingsfarbe",
+      "invocationName": "calendarcompanion",
       "intents": [
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
         {
           "name": "AMAZON.CancelIntent",
           "samples": []
@@ -16,78 +20,74 @@
           "samples": []
         },
         {
-          "name": "MyColorIsIntent",
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "addToDoIntent",
           "slots": [
             {
-              "name": "Color",
-              "type": "LIST_OF_COLORS"
+              "name": "Wochentag",
+              "type": "WochentagType"
+            },
+            {
+              "name": "todo",
+              "type": "toDoType"
             }
           ],
           "samples": [
-            " Meine Lieblingsfarbe ist {Color}",
-            " Ich mag {Color}"
+            "füge {todo} am {Wochentag} hinzu",
+            "füge {todo} für {Wochentag} hinzu"
           ]
-        },
-        {
-          "name": "WhatsMyColorIntent",
-          "slots": [],
-          "samples": [
-            "was ist meine Lieblingsfarbe",
-            "welche Farbe mag ich am liebsten",
-            "sag mir meine Lieblingsfarbe"
-          ]
-        },
-        {
-          "name": "AMAZON.PauseIntent",
-          "samples": []
-        },
-        {
-          "name": "AMAZON.ResumeIntent",
-          "samples": []
         }
       ],
       "types": [
         {
-          "name": "LIST_OF_COLORS",
+          "name": "WochentagType",
           "values": [
             {
               "name": {
-                "value": "grün"
+                "value": "Sonntag"
               }
             },
             {
               "name": {
-                "value": "blau"
+                "value": "Samstag"
               }
             },
             {
               "name": {
-                "value": "lila"
+                "value": "Freitag"
               }
             },
             {
               "name": {
-                "value": "rot"
+                "value": "Donnerstag"
               }
             },
             {
               "name": {
-                "value": "orange"
+                "value": "Mittwoch"
               }
             },
             {
               "name": {
-                "value": "rosa"
+                "value": "Dienstag"
               }
             },
             {
               "name": {
-                "value": "türkis"
+                "value": "Montag"
               }
-            },
+            }
+          ]
+        },
+        {
+          "name": "toDoType",
+          "values": [
             {
               "name": {
-                "value": "gelb"
+                "value": "etwas"
               }
             }
           ]
