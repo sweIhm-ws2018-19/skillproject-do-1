@@ -24,11 +24,20 @@
           "samples": []
         },
         {
-          "name": "AddToDoIntent",
-          "slots": [],
+          "name": "addToDoIntent",
+          "slots": [
+            {
+              "name": "Wochentag",
+              "type": "WochentagType"
+            },
+            {
+              "name": "todo",
+              "type": "toDoType"
+            }
+          ],
           "samples": [
-            "füge ToDo zu meiner Liste hinzu",
-            "füge ToDo hinzu"
+            "füge {todo} am {Wochentag} hinzu",
+            "füge {todo} für {Wochentag} hinzu"
           ]
         }
       ],
@@ -69,6 +78,16 @@
             {
               "name": {
                 "value": "Montag"
+              }
+            }
+          ]
+        },
+        {
+          "name": "toDoType",
+          "values": [
+            {
+              "name": {
+                "value": "etwas"
               }
             }
           ]

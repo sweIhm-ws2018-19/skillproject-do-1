@@ -35,34 +35,36 @@ public class AddToDoIntentHandler implements RequestHandler {
 
 
         if (wochenTag.getValue() != null && wochenTag.getResolutions().toString().contains("ER_SUCCESS_MATCH")) {
-            List<String> list = new ArrayList<>();
-            list.add(toDo.getValue());
-            ToDoList toDoList = new ToDoList(list);
-            // Store the user's favorite color in the Session and store in DB then create response.
-            input.getAttributesManager().setSessionAttributes(Collections.singletonMap(wochenTag.getValue(), toDoList.getToDos()));
 
-            //Was noch fehlt: Liste für spezifischen WOchentag holen Liste zwischenspeichern und to do anhängen, dann erst wieder abspeichern
-
-
-            //store persistent
+            //ToDoListe für einen bestimmten Tag aus Datenbank holen
             AttributesManager attributesManager = input.getAttributesManager();
             Map<String, Object> persistentAttributes = attributesManager.getPersistentAttributes();
-            persistentAttributes.put(wochenTag.getValue(), toDoList.getToDos());
+            ToDoList toDoListOnWeekDay  = (ToDoList)persistentAttributes.get(wochenTag.getValue());
+            List<String> newToDoList = toDoListOnWeekDay.getToDos();
+            //todoo an Liste anhängen
+            newToDoList.add(toDo.getValue());
+            //Model für datenbank bauen
+            toDoListOnWeekDay.setToDos(newToDoList);
+
+            // Store the user's favorite color in the Session and store in DB then create response.
+            input.getAttributesManager().setSessionAttributes(Collections.singletonMap(wochenTag.getValue(), toDoListOnWeekDay));
+
+            //store persistent
+            persistentAttributes.put(wochenTag.getValue(), toDoListOnWeekDay);
             attributesManager.setPersistentAttributes(persistentAttributes);
             attributesManager.savePersistentAttributes();
 
-//            String speechText =
-//                    String.format("%s %s. %s", PhrasesAndConstants.LIEBLINGSFARBE_IS, lieblingsfarbe.getFarbe(), PhrasesAndConstants.WHAT_IS_LIEBLINGSFARBE);
-//            responseBuilder.withSimpleCard(PhrasesAndConstants.CARD_TITLE, speechText)
-//                    .withSpeech(speechText)
-//                    .withShouldEndSession(false);
+            String speechText =
+                    String.format("%s wurde zu deiner ToDoListe am %s hinzugefügt.", toDo.getValue(), wochenTag.getValue());
+            responseBuilder.withSimpleCard(PhrasesAndConstants.CARD_TITLE, speechText)
+                    .withSpeech(speechText)
+                    .withShouldEndSession(false);
 
         } else {
-            // Render an error since we don't know what the users favorite color is.
-//            responseBuilder.withSimpleCard(PhrasesAndConstants.CARD_TITLE, PhrasesAndConstants.SAY_LIEBLINGAFARBE_REPROMPT)
-//                    .withSpeech(PhrasesAndConstants.SAY_LIEBLINGAFARBE_REPROMPT)
-//                    .withReprompt(PhrasesAndConstants.REPROMPT_LIEBINGSFARBE)
-//                    .withShouldEndSession(false);
+            String speechText = "bitte Wochentag nennen, an dem das ToDo hinzugefügt werden soll.";
+            responseBuilder.withSimpleCard(PhrasesAndConstants.CARD_TITLE, speechText)
+                    .withSpeech(speechText)
+                    .withShouldEndSession(false);
         }
 
         return responseBuilder.build();

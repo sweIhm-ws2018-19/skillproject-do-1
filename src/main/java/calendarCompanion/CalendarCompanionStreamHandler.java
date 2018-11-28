@@ -17,6 +17,8 @@ public class CalendarCompanionStreamHandler extends SkillStreamHandler {
                         new CancelandStopIntentHandler(),
                         new HelpIntentHandler(),
                         new FallbackIntentHandler())
+                .withTableName("toDoData")
+                .withAutoCreateTable(true)
                 // Add your skill id below
                 //.withSkillId("")
                 .build();
