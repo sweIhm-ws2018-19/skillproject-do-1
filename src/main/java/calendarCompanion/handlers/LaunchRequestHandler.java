@@ -17,8 +17,8 @@ public class LaunchRequestHandler implements RequestHandler {
 
     @Override
     public Optional<Response> handle(HandlerInput input) {
-        String speechText = "Hallo. Ich bin dein persÃ¶nlicher Calendar Companion. Mit mir kannst du deinen persÃ¶nlichen Kalender erstellen und managen.";
-        String repromtText = "Bitte sage mir, ob du einen Termin erstellen willst, oder ein ToDo zu deiner Liste hinzufÃ¼gen mÃ¶chtest. Du kannst auch deine Termine und ToDoS fÃ¼r heute erfragen.";
+        String speechText = "Hallo. Ich bin dein persönlicher Calendar Companion. Mit mir kannst du deinen persönlichen Kalender erstellen und managen.";
+        String repromtText = "Bitte sage mir, ob du einen Termin erstellen willst, oder ein ToDo zu deiner Liste hinzufügen möchtest. Du kannst auch deine Termine und ToDoS für heute erfragen.";
         return input.getResponseBuilder()
                 .withSimpleCard("CalendarSession", speechText)
                 .withSpeech(speechText)
