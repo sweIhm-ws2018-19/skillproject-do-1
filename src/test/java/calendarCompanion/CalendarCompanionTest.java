@@ -1,13 +1,9 @@
 package calendarCompanion;
 
-import static org.junit.Assert.*;
-
+import org.junit.Assert;
 import org.junit.Test;
 
 import calendarCompanion.model.ToDoList;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,8 +16,15 @@ public class CalendarCompanionTest {
 	    public void setToDoList() {
 	    	
 	    	ToDoList toDoList = new ToDoList(list);
+	    	list.add("testBefore");
 	    	
+	    	List<String> listAfter = new ArrayList<String>();
+	    	listAfter.add("testAfter");
 	    	
+	    	toDoList.setToDos(listAfter);
+	    	
+	    	Assert.assertEquals("[testAfter]", toDoList.getToDos().toString());
+	    	Assert.assertFalse(toDoList.getToDos().contains("testBefore"));
 
 	     
 	    }
