@@ -26,8 +26,8 @@ public class LaunchRequestHandler implements RequestHandler {
             System.out.println(e.getMessage());
         }
         String dateString = "heute ist der" + dateTimeDe.getDay() + "te" + dateTimeDe.getMonth() + dateTimeDe.getYear()+".";
-        String speechText = "Hallo, " + dateString + "Ich bin dein persÃ¶nlicher Calendar Companion. Mit mir kannst du deinen persÃ¶nlichen Kalender erstellen und managen. MÃ¶chtest du ein ToDo zu deiner Liste hinzufÃ¼gen?";
-        String repromtText = "Sage so etwas, wie: fÃ¼ge Spazierengehen am Donnerstag hinzu.";
+        String speechText = "Hallo, " + dateString + "Ich bin dein persönlicher Calendar Companion. Mit mir kannst du deinen persönlichen Kalender erstellen und managen. Möchtest du ein ToDo zu deiner Liste hinzufügen?";
+        String repromtText = "Sage so etwas, wie: füge Spazierengehen am Donnerstag hinzu.";
         return input.getResponseBuilder()
                 .withSimpleCard("CalendarSession", speechText)
                 .withSpeech(speechText)

@@ -36,8 +36,8 @@
             }
           ],
           "samples": [
-            "fÃ¼ge {todo} am {Wochentag} hinzu",
-            "fÃ¼ge {todo} fÃ¼r {Wochentag} hinzu"
+            "füge {todo} am {Wochentag} hinzu",
+            "füge {todo} für {Wochentag} hinzu"
           ]
         }
       ],

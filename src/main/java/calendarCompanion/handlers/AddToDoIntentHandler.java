@@ -55,7 +55,7 @@ public class AddToDoIntentHandler implements RequestHandler {
             attributesManager.savePersistentAttributes();
 
             String speechText =
-                    String.format("%s wurde zu deiner ToDoListe am %s hinzugefÃ¼gt.", toDo.getValue(), wochenTag.getValue());
+                    String.format("%s wurde zu deiner ToDoListe am %s hinzugefügt.", toDo.getValue(), wochenTag.getValue());
             responseBuilder.withSimpleCard(PhrasesAndConstants.CARD_TITLE, speechText)
                     .withSpeech(speechText)
                     .withShouldEndSession(false);
