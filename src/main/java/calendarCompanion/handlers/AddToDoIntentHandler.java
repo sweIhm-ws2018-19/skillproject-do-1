@@ -17,7 +17,7 @@ import static com.amazon.ask.request.Predicates.intentName;
 public class AddToDoIntentHandler implements RequestHandler {
     @Override
     public boolean canHandle(HandlerInput input) {
-        return input.matches(intentName("AddToDoIntent"));
+        return input.matches(intentName("AddToDoListIntent"));
     }
 
     @Override

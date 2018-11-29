@@ -19,7 +19,7 @@ import static com.amazon.ask.request.Predicates.intentName;
 public class AddToDoOnWeekDayHandler implements RequestHandler {
     @Override
     public boolean canHandle(HandlerInput input) {
-        return input.matches(intentName("AddToDosOnWeekDayIntent"));
+        return input.matches(intentName("AddToDoListIntent"));
     }
 
     @Override
