@@ -1,145 +1,159 @@
 {
-  "interactionModel": {
-    "languageModel": {
-      "invocationName": "calendar companion",
-      "intents": [
-        {
-          "name": "AMAZON.CancelIntent",
-          "samples": []
-        },
-        {
-          "name": "AMAZON.HelpIntent",
-          "samples": []
-        },
-        {
-          "name": "AMAZON.StopIntent",
-          "samples": []
-        },
-        {
-          "name": "AMAZON.NavigateHomeIntent",
-          "samples": []
-        },
-        {
-          "name": "WelcomeIntent",
-          "slots": [],
-          "samples": [
-            "Hallo",
-            "Wilkommen"
-          ]
-        },
-        {
-          "name": "HearToDoListIntent",
-          "slots": [],
-          "samples": [
-            "Was ist in meiner To Do Liste",
-            "Ich will meine To Dos hören"
-          ]
-        },
-        {
-          "name": "AddToDosOnWeekDayIntent",
-          "slots": [
-            {
-              "name": "ToDo",
-              "type": "ToDoType"
-            },
-            {
-              "name": "Wochentag",
-              "type": "WochenTagType"
-            }
-          ],
-          "samples": [
-            "erstelle {ToDo} für {Wochentag}",
-            "füge {ToDo} am {Wochentag} ein",
-            "füge To Dos ein",
-            "füge meine ToDos ein"
-          ]
-        },
-        {
-          "name": "AddEvent",
-          "slots": [],
-          "samples": [
-            "Füge event hinzu"
-          ]
-        },
-        {
-          "name": "DeleteToDo",
-          "slots": [],
-          "samples": [
-            "Kannst du bitte a to-do löschen",
-            "Lösch a to-do"
-          ]
-        },
-        {
-          "name": "DeleteEvent",
-          "slots": [],
-          "samples": [
-            "Kannst du bitte Veranstaltung löschen",
-            "Lösch Veranstaltung"
-          ]
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "calendar companion",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "WelcomeIntent",
+                    "slots": [],
+                    "samples": [
+                        "Hallo",
+                        "Wilkommen"
+                    ]
+                },
+                {
+                    "name": "HearToDoListIntent",
+                    "slots": [],
+                    "samples": [
+                        "Was ist in meiner To Do Liste",
+                        "Ich will meine To Dos hören"
+                    ]
+                },
+                {
+                    "name": "AddToDosOnWeekDayIntent",
+                    "slots": [
+                        {
+                            "name": "ToDo",
+                            "type": "ToDoType"
+                        },
+                        {
+                            "name": "Wochentag",
+                            "type": "WochenTagType"
+                        }
+                    ],
+                    "samples": [
+                        "füge {ToDo} am {Wochentag} ein",
+                        "füge meine ToDos ein"
+                    ]
+                },
+                {
+                    "name": "AddEvent",
+                    "slots": [],
+                    "samples": [
+                        "Füge event hinzu"
+                    ]
+                },
+                {
+                    "name": "DeleteToDo",
+                    "slots": [],
+                    "samples": [
+                        "Kannst du bitte a to-do löschen",
+                        "Lösch a to-do"
+                    ]
+                },
+                {
+                    "name": "DeleteEvent",
+                    "slots": [],
+                    "samples": [
+                        "Kannst du bitte Veranstaltung löschen",
+                        "Lösch Veranstaltung"
+                    ]
+                },
+                {
+                    "name": "AddToDoIntent",
+                    "slots": [
+                        {
+                            "name": "ToDo",
+                            "type": "ToDoType"
+                        },
+                        {
+                            "name": "Wochentag",
+                            "type": "WochenTagType"
+                        }
+                    ],
+                    "samples": [
+                        "füge {ToDo} am {Wochentag} hinzu"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "WochenTagType",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "Morgen"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Heute "
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Sonntag"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Samstag"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Freitag"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Donnerstag"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Mittwoch"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Dienstag"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Montag"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "ToDoType",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "literal"
+                            }
+                        }
+                    ]
+                }
+            ]
         }
-      ],
-      "types": [
-        {
-          "name": "WochenTagType",
-          "values": [
-            {
-              "name": {
-                "value": "Morgen"
-              }
-            },
-            {
-              "name": {
-                "value": "Heute "
-              }
-            },
-            {
-              "name": {
-                "value": "Sonntag"
-              }
-            },
-            {
-              "name": {
-                "value": "Samstag"
-              }
-            },
-            {
-              "name": {
-                "value": "Freitag"
-              }
-            },
-            {
-              "name": {
-                "value": "Donnerstag"
-              }
-            },
-            {
-              "name": {
-                "value": "Mittwoch"
-              }
-            },
-            {
-              "name": {
-                "value": "Dienstag"
-              }
-            },
-            {
-              "name": {
-                "value": "Montag"
-              }
-            }
-          ]
-        },
-        {
-          "name": "ToDoType",
-          "values": [
-            {
-              "name": {
-                "value": "literal"
-              }
-            }
-          ]
-        }
-      ]
     }
-  }
 }
