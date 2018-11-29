@@ -49,7 +49,7 @@
           ],
           "samples": [
             "erstelle {ToDo} für {Wochentag}",
-            "füge {ToDo}  am {Wochentag} ein",
+            "füge {ToDo} am {Wochentag} ein",
             "füge To Dos ein",
             "füge meine ToDos ein"
           ]
