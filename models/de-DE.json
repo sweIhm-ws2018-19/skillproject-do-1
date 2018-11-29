@@ -32,7 +32,7 @@
           "slots": [],
           "samples": [
             "Was ist in meiner To Do Liste",
-            "Ich will meine To Dos hÃ¶ren"
+            "Ich will meine To Dos hören"
           ]
         },
         {
@@ -48,33 +48,33 @@
             }
           ],
           "samples": [
-            "erstelle {ToDo} fÃ¼r {Wochentag}",
-            "fÃ¼ge {ToDo}  am {Wochentag} ein",
-            "fÃ¼ge To Dos ein",
-            "fÃ¼ge meine ToDos ein"
+            "erstelle {ToDo} für {Wochentag}",
+            "füge {ToDo}  am {Wochentag} ein",
+            "füge To Dos ein",
+            "füge meine ToDos ein"
           ]
         },
         {
           "name": "AddEvent",
           "slots": [],
           "samples": [
-            "FÃ¼ge event hinzu"
+            "Füge event hinzu"
           ]
         },
         {
           "name": "DeleteToDo",
           "slots": [],
           "samples": [
-            "Kannst du bitte a to-do lÃ¶schen",
-            "LÃ¶sch a to-do"
+            "Kannst du bitte a to-do löschen",
+            "Lösch a to-do"
           ]
         },
         {
           "name": "DeleteEvent",
           "slots": [],
           "samples": [
-            "Kannst du bitte Veranstaltung lÃ¶schen",
-            "LÃ¶sch Veranstaltung"
+            "Kannst du bitte Veranstaltung löschen",
+            "Lösch Veranstaltung"
           ]
         }
       ],
