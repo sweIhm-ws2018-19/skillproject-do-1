@@ -19,7 +19,7 @@ import java.util.Optional;
 
 import static com.amazon.ask.request.Predicates.intentName;
 
-public class GetToDosOnWeekDayHandler implements RequestHandler {
+public class GetToDosOnWeekDaysHandler implements RequestHandler {
     @Override
     public boolean canHandle(HandlerInput input) {
         return input.matches(intentName("GetToDosOnWeekDayIntent"));
@@ -41,9 +41,9 @@ public class GetToDosOnWeekDayHandler implements RequestHandler {
             AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
             DynamoDBMapper mapper = new DynamoDBMapper(client);
 
-            //Liste fÃ¼r bestimmten Wochentag aus DB holen
+            //Liste für bestimmten Wochentag aus DB holen
             ToDoListItemOnWeekDay partitionKey = new ToDoListItemOnWeekDay();
-            //todolistitem fÃ¼r items mit dem key "wochentag" aus der DB holen
+            //todolistitem für items mit dem key "wochentag" aus der DB holen
             partitionKey.setWeekDay(wochenTag.getValue());
             DynamoDBQueryExpression<ToDoListItemOnWeekDay> queryExpression = new DynamoDBQueryExpression<ToDoListItemOnWeekDay>()
                     .withHashKeyValues(partitionKey);
@@ -54,10 +54,10 @@ public class GetToDosOnWeekDayHandler implements RequestHandler {
             for(ToDoListItemOnWeekDay i:toDoList)
                 toDos.add(i.getToDo());
             //build responseText:
-                toDoItemString = String.join(", ", toDos);
+            toDoItemString = String.join(", ", toDos);
 
             responseText =
-                    String.format("folgende ToDos wurden am %s ihrer Liste hinzugefÃ¼gt: %s", wochenTag.getValue(), toDoItemString);
+                    String.format("folgende ToDos wurden am %s ihrer Liste hinzugefügt: %s", wochenTag.getValue(), toDoItemString);
             responseBuilder.withSimpleCard(PhrasesAndConstants.CARD_TITLE, responseText)
                     .withSpeech(responseText)
                     .withShouldEndSession(false);

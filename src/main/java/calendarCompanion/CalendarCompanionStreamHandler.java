@@ -15,7 +15,7 @@ public class CalendarCompanionStreamHandler extends SkillStreamHandler {
                         new HelpIntentHandler(),
                         new FallbackIntentHandler(),
                         new AddToDoOnWeekDayHandler(),
-                        new GetToDosOnWeekDayHandler())
+                        new GetToDosOnWeekDaysHandler())
                 .withTableName("toDoData")
                 .withAutoCreateTable(true)
                 // Add your skill id below
