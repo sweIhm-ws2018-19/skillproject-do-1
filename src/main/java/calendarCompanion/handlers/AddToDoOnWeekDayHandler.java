@@ -19,7 +19,7 @@ import static com.amazon.ask.request.Predicates.intentName;
 public class AddToDoOnWeekDayHandler implements RequestHandler {
     @Override
     public boolean canHandle(HandlerInput input) {
-        return input.matches(intentName("AddToDosOnWeekDayIntent"));
+        return input.matches(intentName("AddToDoIntent"));
     }
 
     @Override
@@ -51,6 +51,7 @@ public class AddToDoOnWeekDayHandler implements RequestHandler {
             responseBuilder.withSimpleCard(PhrasesAndConstants.CARD_TITLE, speechText)
                     .withSpeech(speechText)
                     .withShouldEndSession(false);
+
 
         } else {
             String speechText = "bitte Wochentag nennen, an dem das ToDo hinzugefügt werden soll.";

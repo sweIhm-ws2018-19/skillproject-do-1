@@ -1,12 +1,8 @@
 {
   "interactionModel": {
     "languageModel": {
-      "invocationName": "calendarcompanion",
+      "invocationName": "calendar companion",
       "intents": [
-        {
-          "name": "AMAZON.FallbackIntent",
-          "samples": []
-        },
         {
           "name": "AMAZON.CancelIntent",
           "samples": []
@@ -24,27 +20,78 @@
           "samples": []
         },
         {
-          "name": "addToDoIntent",
+          "name": "WelcomeIntent",
+          "slots": [],
+          "samples": [
+            "Hallo",
+            "Wilkommen"
+          ]
+        },
+        {
+          "name": "HearToDoListIntent",
+          "slots": [],
+          "samples": [
+            "Was ist in meiner To Do Liste",
+            "Ich will meine To Dos hören"
+          ]
+        },
+        {
+          "name": "AddToDosOnWeekDayIntent",
           "slots": [
             {
-              "name": "Wochentag",
-              "type": "WochentagType"
+              "name": "ToDo",
+              "type": "ToDoType"
             },
             {
-              "name": "todo",
-              "type": "toDoType"
+              "name": "Wochentag",
+              "type": "WochenTagType"
             }
           ],
           "samples": [
-            "füge {todo} am {Wochentag} hinzu",
-            "füge {todo} für {Wochentag} hinzu"
+            "erstelle {ToDo} für {Wochentag}",
+            "füge {ToDo}  am {Wochentag} ein",
+            "füge To Dos ein",
+            "füge meine ToDos ein"
+          ]
+        },
+        {
+          "name": "AddEvent",
+          "slots": [],
+          "samples": [
+            "Füge event hinzu"
+          ]
+        },
+        {
+          "name": "DeleteToDo",
+          "slots": [],
+          "samples": [
+            "Kannst du bitte a to-do löschen",
+            "Lösch a to-do"
+          ]
+        },
+        {
+          "name": "DeleteEvent",
+          "slots": [],
+          "samples": [
+            "Kannst du bitte Veranstaltung löschen",
+            "Lösch Veranstaltung"
           ]
         }
       ],
       "types": [
         {
-          "name": "WochentagType",
+          "name": "WochenTagType",
           "values": [
+            {
+              "name": {
+                "value": "Morgen"
+              }
+            },
+            {
+              "name": {
+                "value": "Heute "
+              }
+            },
             {
               "name": {
                 "value": "Sonntag"
@@ -83,11 +130,11 @@
           ]
         },
         {
-          "name": "toDoType",
+          "name": "ToDoType",
           "values": [
             {
               "name": {
-                "value": "etwas"
+                "value": "literal"
               }
             }
           ]
