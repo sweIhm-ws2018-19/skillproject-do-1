@@ -12,7 +12,9 @@ import java.io.IOException;
 import java.util.Optional;
 
 public class LaunchRequestHandler implements RequestHandler {
-//    private DateTimeDE dateTimeDe;
+
+    //public static DateTimeDE dateTimeDe;
+
     @Override
     public boolean canHandle(HandlerInput input) {
         return input.matches(Predicates.requestType(LaunchRequest.class));
@@ -20,14 +22,12 @@ public class LaunchRequestHandler implements RequestHandler {
 
     @Override
     public Optional<Response> handle(HandlerInput input) {
-//        try{
-//            dateTimeDe.httpGetTimeAndDate();
-//        }catch(IOException e){
-//            System.out.println(e.getMessage());
-//        }
-       // String dateString = "heute ist der" + dateTimeDe.getDay() + "te" + dateTimeDe.getMonth() + dateTimeDe.getYear()+".";
+
+
+        //String dateString = "heute ist der" + dateTimeDe.getDay() + "te" + dateTimeDe.getMonth() + dateTimeDe.getYear()+".";
         String speechText = "Hallo, Ich bin dein persönlicher Calendar Companion. Mit mir kannst du deinen persönlichen Kalender erstellen und managen. Möchtest du ein ToDo zu deiner Liste hinzufügen?";
         String repromtText = "Sage so etwas, wie: füge Spazierengehen am Donnerstag hinzu.";
+
         return input.getResponseBuilder()
                 .withSimpleCard("CalendarSession", speechText)
                 .withSpeech(speechText)

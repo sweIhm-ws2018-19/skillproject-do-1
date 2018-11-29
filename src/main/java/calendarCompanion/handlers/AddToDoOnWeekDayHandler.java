@@ -52,6 +52,7 @@ public class AddToDoOnWeekDayHandler implements RequestHandler {
                     .withSpeech(speechText)
                     .withShouldEndSession(false);
 
+
         } else {
             String speechText = "bitte Wochentag nennen, an dem das ToDo hinzugefügt werden soll.";
             responseBuilder.withSimpleCard(PhrasesAndConstants.CARD_TITLE, speechText)
