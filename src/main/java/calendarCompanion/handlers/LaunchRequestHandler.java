@@ -20,8 +20,11 @@ public class LaunchRequestHandler implements RequestHandler {
 
     @Override
     public Optional<Response> handle(HandlerInput input) {
+    	
+    	   GregorianCalendar now = new GregorianCalendar(); 
+           df = DateFormat.getDateInstance(DateFormat.MEDIUM);
 
-        String speechText = "Hallo, Ich bin dein persönlicher Calendar Companion. Mit mir kannst du deinen persönlichen Kalender erstellen und managen. Möchtest du ein ToDo zu deiner Liste hinzufügen?";
+        String speechText = "Hallo. Es ist " +df +  "Ich bin dein persönlicher Calendar Companion. Mit mir kannst du deinen persönlichen Kalender erstellen und managen. Möchtest du ein ToDo zu deiner Liste hinzufügen?";
         String repromtText = "Sage so etwas, wie: füge Spazierengehen am Donnerstag hinzu.";
 
         return input.getResponseBuilder()
