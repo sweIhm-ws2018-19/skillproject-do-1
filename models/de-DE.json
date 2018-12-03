@@ -35,7 +35,7 @@
                     "slots": [],
                     "samples": [
                         "Was ist in meiner To Do Liste",
-                        "Ich will meine To Dos h�ren"
+                        "Ich will meine To Dos hören"
                     ]
                 },
                 {
@@ -91,7 +91,7 @@
                         }
                     ],
                     "samples": [
-                        "f�ge {ToDo} am {Wochentag} hinzu"
+                        "füge {ToDo} am {Wochentag} hinzu"
                     ]
                 }
             ],
