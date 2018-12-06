@@ -15,12 +15,12 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.when;
 
 public class TestUtil {
-	public static HandlerInput mockHandlerInput(String favoriteColor, Map<String, Object> sessionAttributes,
-			Map<String, Object> persistentAttributes, Map<String, Object> requestAttributes) {
-		final AttributesManager attributesManagerMock = Mockito.mock(AttributesManager.class);
-		when(attributesManagerMock.getSessionAttributes()).thenReturn(sessionAttributes);
-		when(attributesManagerMock.getPersistentAttributes()).thenReturn(persistentAttributes);
-		when(attributesManagerMock.getRequestAttributes()).thenReturn(requestAttributes);
+//	public static HandlerInput mockHandlerInput(String favoriteColor, Map<String, Object> sessionAttributes,
+//			Map<String, Object> persistentAttributes, Map<String, Object> requestAttributes) {
+//		final AttributesManager attributesManagerMock = Mockito.mock(AttributesManager.class);
+//		when(attributesManagerMock.getSessionAttributes()).thenReturn(sessionAttributes);
+//		when(attributesManagerMock.getPersistentAttributes()).thenReturn(persistentAttributes);
+//		when(attributesManagerMock.getRequestAttributes()).thenReturn(requestAttributes);
 // Mock Slots
 //		final RequestEnvelope requestEnvelopeMock = RequestEnvelope.builder()
 //				.withRequest(IntentRequest.builder().withIntent(Intent.builder()
@@ -29,6 +29,27 @@ public class TestUtil {
 //						.build()).build())
 //				.build();
 // Mock Handler input attributes
+//		final HandlerInput input = Mockito.mock(HandlerInput.class);
+//		when(input.getAttributesManager()).thenReturn(attributesManagerMock);
+//		when(input.getResponseBuilder()).thenReturn(new ResponseBuilder());
+//		//when(input.getRequestEnvelope()).thenReturn(requestEnvelopeMock);
+//		return input;
+//	}
+	
+	public static HandlerInput mockHandlerInput(String favoriteColor, Map<String, Object> sessionAttributes,
+			Map<String, Object> persistentAttributes, Map<String, Object> requestAttributes) {
+		final AttributesManager attributesManagerMock = Mockito.mock(AttributesManager.class);
+		when(attributesManagerMock.getSessionAttributes()).thenReturn(sessionAttributes);
+		when(attributesManagerMock.getPersistentAttributes()).thenReturn(persistentAttributes);
+		when(attributesManagerMock.getRequestAttributes()).thenReturn(requestAttributes);
+ //Mock Slots
+//		final RequestEnvelope requestEnvelopeMock = RequestEnvelope.builder()
+//				.withRequest(IntentRequest.builder().withIntent(Intent.builder()
+//						.putSlotsItem(PhrasesAndConstants.COLOR_SLOT, Slot.builder()
+//								.withName(PhrasesAndConstants.COLOR_SLOT).withValue(favoriteColor).build())
+//						.build()).build())
+//				.build();
+ //Mock Handler input attributes
 		final HandlerInput input = Mockito.mock(HandlerInput.class);
 		when(input.getAttributesManager()).thenReturn(attributesManagerMock);
 		when(input.getResponseBuilder()).thenReturn(new ResponseBuilder());
