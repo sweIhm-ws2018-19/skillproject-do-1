@@ -5,6 +5,7 @@ import com.amazon.ask.Skill;
 import com.amazon.ask.SkillStreamHandler;
 import com.amazon.ask.Skills;
 
+
 public class CalendarCompanionStreamHandler extends SkillStreamHandler {
 
     private static Skill getSkill() {

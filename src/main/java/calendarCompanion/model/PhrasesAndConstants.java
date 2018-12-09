@@ -9,4 +9,7 @@ public class PhrasesAndConstants {
     public static final String TODO_KEY = "TODO";
     public static final String TODO_SLOT = "ToDo";
     public static final String WOCHENTAG_SLOT = "Wochentag";
+    public static final String TODOS_SIND = "Deine Todos sind";
+    
 }
+

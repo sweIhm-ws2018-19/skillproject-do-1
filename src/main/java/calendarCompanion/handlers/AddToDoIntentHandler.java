@@ -65,6 +65,7 @@ public class AddToDoIntentHandler implements RequestHandler {
             responseBuilder.withSimpleCard(PhrasesAndConstants.CARD_TITLE, speechText)
                     .withSpeech(speechText)
                     .withShouldEndSession(false);
+
         }
 
         return responseBuilder.build();
