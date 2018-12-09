@@ -11,6 +11,11 @@ target/*
 # Log file
 *.log
 
+#eclipse
+.settings
+.classpath
+.project
+
 # BlueJ files
 *.ctxt
 

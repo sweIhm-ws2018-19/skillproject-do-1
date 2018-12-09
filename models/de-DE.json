@@ -1,162 +1,100 @@
 {
-    "interactionModel": {
-        "languageModel": {
-            "invocationName": "calendar companion",
-            "intents": [
-                {
-                    "name": "AMAZON.CancelIntent",
-                    "samples": []
-                },
-                {
-                    "name": "AMAZON.HelpIntent",
-                    "samples": [
-                        "Ich brauche Hilfe",
-                        "Hilfe"
-                    ]
-                },
-                {
-                    "name": "AMAZON.StopIntent",
-                    "samples": []
-                },
-                {
-                    "name": "AMAZON.NavigateHomeIntent",
-                    "samples": []
-                },
-                {
-                    "name": "WelcomeIntent",
-                    "slots": [],
-                    "samples": [
-                        "Hallo",
-                        "Wilkommen"
-                    ]
-                },
-                {
-                    "name": "HearToDoListIntent",
-                    "slots": [],
-                    "samples": [
-                        "Was ist in meiner To Do Liste",
-                        "Ich will meine To Dos hören"
-                    ]
-                },
-                {
-                    "name": "AddToDosOnWeekDayIntent",
-                    "slots": [
-                        {
-                            "name": "ToDo",
-                            "type": "ToDoType"
-                        },
-                        {
-                            "name": "Wochentag",
-                            "type": "WochenTagType"
-                        }
-                    ],
-                    "samples": [
-                        "f�ge {ToDo} am {Wochentag} ein",
-                        "f�ge meine ToDos ein"
-                    ]
-                },
-                {
-                    "name": "AddEvent",
-                    "slots": [],
-                    "samples": [
-                        "F�ge event hinzu"
-                    ]
-                },
-                {
-                    "name": "DeleteToDo",
-                    "slots": [],
-                    "samples": [
-                        "Kannst du bitte a to-do l�schen",
-                        "L�sch a to-do"
-                    ]
-                },
-                {
-                    "name": "DeleteEvent",
-                    "slots": [],
-                    "samples": [
-                        "Kannst du bitte Veranstaltung l�schen",
-                        "L�sch Veranstaltung"
-                    ]
-                },
-                {
-                    "name": "AddToDoIntent",
-                    "slots": [
-                        {
-                            "name": "ToDo",
-                            "type": "ToDoType"
-                        },
-                        {
-                            "name": "Wochentag",
-                            "type": "WochenTagType"
-                        }
-                    ],
-                    "samples": [
-                        "füge {ToDo} am {Wochentag} hinzu"
-                    ]
-                }
-            ],
-            "types": [
-                {
-                    "name": "WochenTagType",
-                    "values": [
-                        {
-                            "name": {
-                                "value": "Morgen"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "Heute "
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "Sonntag"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "Samstag"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "Freitag"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "Donnerstag"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "Mittwoch"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "Dienstag"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "Montag"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "ToDoType",
-                    "values": [
-                        {
-                            "name": {
-                                "value": "literal"
-                            }
-                        }
-                    ]
-                }
-            ]
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "calendar companion",
+      "intents": [
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AddToDoOnWeekDayIntent",
+          "slots": [
+            {
+              "name": "Wochentag",
+              "type": "WochentagType"
+            },
+            {
+              "name": "ToDo",
+              "type": "ToDoType"
+            }
+          ],
+          "samples": [
+            "am {Wochentag} gehe ich {ToDo}",
+            "am {Wochentag} muss ich {ToDo} erledigen",
+            "erstelle ein {ToDo} am {Wochentag}",
+            "f�ge {ToDo} am {Wochentag} hinzu"
+          ]
         }
+      ],
+      "types": [
+        {
+          "name": "ToDoType",
+          "values": [
+            {
+              "name": {
+                "value": "einkaufen"
+              }
+            }
+          ]
+        },
+        {
+          "name": "WochentagType",
+          "values": [
+            {
+              "name": {
+                "value": "sonntag"
+              }
+            },
+            {
+              "name": {
+                "value": "samstag"
+              }
+            },
+            {
+              "name": {
+                "value": "freitag"
+              }
+            },
+            {
+              "name": {
+                "value": "donnerstag"
+              }
+            },
+            {
+              "name": {
+                "value": "mittwoch"
+              }
+            },
+            {
+              "name": {
+                "value": "dienstag"
+              }
+            },
+            {
+              "name": {
+                "value": "montag"
+              }
+            }
+          ]
+        }
+      ]
     }
+  }
 }
