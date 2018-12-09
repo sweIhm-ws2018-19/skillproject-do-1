@@ -1,22 +1,21 @@
 package calendarCompanion.handlers;
 
 import calendarCompanion.DynamoDBOperations.DynamoDBAccess;
+import calendarCompanion.model.PhrasesAndConstants;
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
 import com.amazon.ask.model.*;
 import com.amazon.ask.response.ResponseBuilder;
 
-import calendarCompanion.model.PhrasesAndConstants;
-
-import java.util.*;
-
+import java.util.Map;
+import java.util.Optional;
 
 import static com.amazon.ask.request.Predicates.intentName;
 
-public class AddToDoOnWeekDayHandler implements RequestHandler {
+public class DeleteToDoOnWeekDayHandler implements RequestHandler {
     @Override
     public boolean canHandle(HandlerInput input) {
-        return input.matches(intentName("AddToDoOnWeekDayIntent"));
+        return input.matches(intentName("DeleteToDoOnWeekDayIntent"));
     }
 
     private DynamoDBAccess dynamoDBAccess;
@@ -33,10 +32,9 @@ public class AddToDoOnWeekDayHandler implements RequestHandler {
         ResponseBuilder responseBuilder = input.getResponseBuilder();
 
         if (wochenTag.getValue() != null && wochenTag.getResolutions().toString().contains("ER_SUCCESS_MATCH")) {
-
             dynamoDBAccess = new DynamoDBAccess(wochenTag.getValue(),toDo.getValue());
-            dynamoDBAccess.addToDo();
-            responseText = String.format("%s wurde zu deiner ToDoListe am %s hinzugefügt.", toDo.getValue(), wochenTag.getValue());
+            dynamoDBAccess.deleteToDo();
+            responseText = String.format("%s wurde von deiner ToDoListe am %s entfernt.", toDo.getValue(), wochenTag.getValue());
         } else {
             responseText = "bitte Wochentag nennen, an dem das ToDo hinzugefügt werden soll.";
         }
@@ -46,4 +44,3 @@ public class AddToDoOnWeekDayHandler implements RequestHandler {
         return responseBuilder.build();
     }
 }
-
