@@ -42,7 +42,9 @@ public class AddToDoOnWeekDayHandler implements RequestHandler {
 
             //TodoListItemOnWeekDay in Datenbank speichern
             ToDoListItemOnWeekDay toDoListItemOnWeekDay = new ToDoListItemOnWeekDay();
-            toDoListItemOnWeekDay.setWeekDay(wochenTag.getValue());
+            //First Char of weekday always uppercase
+            String weekdayUpperCase = Character.toUpperCase(wochenTag.getValue().charAt(0)) + wochenTag.getValue().substring(1);
+            toDoListItemOnWeekDay.setWeekDay(weekdayUpperCase);
             toDoListItemOnWeekDay.setToDo(toDo.getValue());
             mapper.save(toDoListItemOnWeekDay);
 
