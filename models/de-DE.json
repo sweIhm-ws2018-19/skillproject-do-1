@@ -41,6 +41,21 @@
             "erstelle ein {ToDo} am {Wochentag}",
             "füge {ToDo} am {Wochentag} hinzu"
           ]
+        },
+        {
+          "name": "GetToDosOnWeekDayIntent",
+          "slots": [
+            {
+              "name": "Wochentag",
+              "type": "WochentagType"
+            }
+          ],
+          "samples": [
+            "was muss ich {Wochentag} erledigen",
+            "sage mir meine Todos am {Wochentag}",
+            "was steht am {Wochentag} an ",
+            "was muss ich am {Wochentag} erledigen"
+          ]
         }
       ],
       "types": [
@@ -57,6 +72,16 @@
         {
           "name": "WochentagType",
           "values": [
+            {
+              "name": {
+                "value": "morgen"
+              }
+            },
+            {
+              "name": {
+                "value": "heute"
+              }
+            },
             {
               "name": {
                 "value": "sonntag"

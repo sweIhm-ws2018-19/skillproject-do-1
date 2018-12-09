@@ -61,7 +61,7 @@ public class GetToDosOnWeekDayHandler implements RequestHandler {
             toDoItemString = String.join(", ", toDos);
 
             responseText =
-                    String.format("folgende ToDos wurden am %s ihrer Liste hinzugefügt: %s", wochenTag.getValue(), toDoItemString);
+                    String.format("folgende ToDos stehen am %s auf der Liste : %s", wochenTag.getValue(), toDoItemString);
             responseBuilder.withSimpleCard(PhrasesAndConstants.CARD_TITLE, responseText)
                     .withSpeech(responseText)
                     .withShouldEndSession(false);
