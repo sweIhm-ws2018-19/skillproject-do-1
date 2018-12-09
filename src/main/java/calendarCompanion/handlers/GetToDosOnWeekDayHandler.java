@@ -20,7 +20,7 @@ import java.util.Optional;
 
 import static com.amazon.ask.request.Predicates.intentName;
 
-public class GetToDosOnWeekDaysHandler implements RequestHandler {
+public class GetToDosOnWeekDayHandler implements RequestHandler {
     @Override
     public boolean canHandle(HandlerInput input) {
         return input.matches(intentName("GetToDosOnWeekDayIntent"));
@@ -53,6 +53,7 @@ public class GetToDosOnWeekDaysHandler implements RequestHandler {
 
             //toDoItems in eine Liste schreiben
             List<ToDoListItemOnWeekDay> toDoList = mapper.query(ToDoListItemOnWeekDay.class, queryExpression);
+            //nur todos in eine liste schreiben und anschließend zu string zusammenfügen
             List<String> toDos = new ArrayList<>();
             for(ToDoListItemOnWeekDay i:toDoList)
                 toDos.add(i.getToDo());
