@@ -1,7 +1,7 @@
 {
   "interactionModel": {
     "languageModel": {
-      "invocationName": "kalender kompanion",
+      "invocationName": "calendar companion",
       "intents": [
         {
           "name": "AMAZON.FallbackIntent",
@@ -27,22 +27,20 @@
           "name": "AddToDoOnWeekDayIntent",
           "slots": [
             {
-              "name": "toDo",
-              "type": "ToDoType"
-            },
-            {
               "name": "Wochentag",
               "type": "WochentagType"
+            },
+            {
+              "name": "ToDo",
+              "type": "ToDoType"
             }
           ],
           "samples": [
-            "füge {toDo} am {Wochentag} hinzu"
+            "am {Wochentag} gehe ich {ToDo}",
+            "am {Wochentag} muss ich {ToDo} erledigen",
+            "erstelle ein {ToDo} am {Wochentag}",
+            "füge {ToDo} am {Wochentag} hinzu"
           ]
-        },
-        {
-          "name": "GetToDosOnWeekDaysIntent",
-          "slots": [],
-          "samples": []
         }
       ],
       "types": [
