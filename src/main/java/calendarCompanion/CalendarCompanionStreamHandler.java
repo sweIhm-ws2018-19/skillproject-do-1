@@ -19,8 +19,6 @@ public class CalendarCompanionStreamHandler extends SkillStreamHandler {
                         new GetToDosOnWeekDayHandler())
                 .withTableName("toDoData")
                 .withAutoCreateTable(true)
-                // Add your skill id below
-                //.withSkillId("")
                 .build();
     }
 
