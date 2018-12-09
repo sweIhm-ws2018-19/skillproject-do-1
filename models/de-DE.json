@@ -56,6 +56,22 @@
             "was steht am {Wochentag} an ",
             "was muss ich am {Wochentag} erledigen"
           ]
+        },
+        {
+          "name": "DeleteToDoOnWeekDayIntent",
+          "slots": [
+            {
+              "name": "ToDo",
+              "type": "ToDoType"
+            },
+            {
+              "name": "Wochentag",
+              "type": "WochentagType"
+            }
+          ],
+          "samples": [
+            "lösche {ToDo} am {Wochentag}"
+          ]
         }
       ],
       "types": [
