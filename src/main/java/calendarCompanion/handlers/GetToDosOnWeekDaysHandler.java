@@ -6,6 +6,7 @@ import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
 import com.amazon.ask.model.*;
 import com.amazon.ask.response.ResponseBuilder;
+import com.amazonaws.regions.Regions;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
@@ -38,7 +39,9 @@ public class GetToDosOnWeekDaysHandler implements RequestHandler {
         ResponseBuilder responseBuilder = input.getResponseBuilder();
 
         if (wochenTag.getValue() != null && wochenTag.getResolutions().toString().contains("ER_SUCCESS_MATCH")) {
-            AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
+            AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
+                    .withRegion(Regions.EU_WEST_1)
+                    .build();
             DynamoDBMapper mapper = new DynamoDBMapper(client);
 
             //Liste für bestimmten Wochentag aus DB holen

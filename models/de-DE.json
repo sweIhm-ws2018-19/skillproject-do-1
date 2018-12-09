@@ -1,8 +1,12 @@
 {
   "interactionModel": {
     "languageModel": {
-      "invocationName": "calendar companion",
+      "invocationName": "kalender kompanion",
       "intents": [
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
         {
           "name": "AMAZON.CancelIntent",
           "samples": []
@@ -20,121 +24,74 @@
           "samples": []
         },
         {
-          "name": "WelcomeIntent",
-          "slots": [],
-          "samples": [
-            "Hallo",
-            "Wilkommen"
-          ]
-        },
-        {
-          "name": "HearToDoListIntent",
-          "slots": [],
-          "samples": [
-            "Was ist in meiner To Do Liste",
-            "Ich will meine To Dos hören"
-          ]
-        },
-        {
-          "name": "AddToDosOnWeekDayIntent",
+          "name": "AddToDoOnWeekDayIntent",
           "slots": [
             {
-              "name": "ToDo",
+              "name": "toDo",
               "type": "ToDoType"
             },
             {
               "name": "Wochentag",
-              "type": "WochenTagType"
+              "type": "WochentagType"
             }
           ],
           "samples": [
-            "erstelle {ToDo} für {Wochentag}",
-            "füge {ToDo}  am {Wochentag} ein",
-            "füge To Dos ein",
-            "füge meine ToDos ein"
+            "füge {toDo} am {Wochentag} hinzu"
           ]
         },
         {
-          "name": "AddEvent",
+          "name": "GetToDosOnWeekDaysIntent",
           "slots": [],
-          "samples": [
-            "Füge event hinzu"
-          ]
-        },
-        {
-          "name": "DeleteToDo",
-          "slots": [],
-          "samples": [
-            "Kannst du bitte a to-do löschen",
-            "Lösch a to-do"
-          ]
-        },
-        {
-          "name": "DeleteEvent",
-          "slots": [],
-          "samples": [
-            "Kannst du bitte Veranstaltung löschen",
-            "Lösch Veranstaltung"
-          ]
+          "samples": []
         }
       ],
       "types": [
-        {
-          "name": "WochenTagType",
-          "values": [
-            {
-              "name": {
-                "value": "Morgen"
-              }
-            },
-            {
-              "name": {
-                "value": "Heute "
-              }
-            },
-            {
-              "name": {
-                "value": "Sonntag"
-              }
-            },
-            {
-              "name": {
-                "value": "Samstag"
-              }
-            },
-            {
-              "name": {
-                "value": "Freitag"
-              }
-            },
-            {
-              "name": {
-                "value": "Donnerstag"
-              }
-            },
-            {
-              "name": {
-                "value": "Mittwoch"
-              }
-            },
-            {
-              "name": {
-                "value": "Dienstag"
-              }
-            },
-            {
-              "name": {
-                "value": "Montag"
-              }
-            }
-          ]
-        },
         {
           "name": "ToDoType",
           "values": [
             {
               "name": {
-                "value": "literal"
+                "value": "einkaufen"
+              }
+            }
+          ]
+        },
+        {
+          "name": "WochentagType",
+          "values": [
+            {
+              "name": {
+                "value": "sonntag"
+              }
+            },
+            {
+              "name": {
+                "value": "samstag"
+              }
+            },
+            {
+              "name": {
+                "value": "freitag"
+              }
+            },
+            {
+              "name": {
+                "value": "donnerstag"
+              }
+            },
+            {
+              "name": {
+                "value": "mittwoch"
+              }
+            },
+            {
+              "name": {
+                "value": "dienstag"
+              }
+            },
+            {
+              "name": {
+                "value": "montag"
               }
             }
           ]
