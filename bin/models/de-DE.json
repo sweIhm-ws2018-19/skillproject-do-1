@@ -1,8 +1,12 @@
 {
   "interactionModel": {
     "languageModel": {
-      "invocationName": "lieblingsfarbe",
+      "invocationName": "calendar companion",
       "intents": [
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
         {
           "name": "AMAZON.CancelIntent",
           "samples": []
@@ -16,78 +20,80 @@
           "samples": []
         },
         {
-          "name": "MyColorIsIntent",
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AddToDoOnWeekDayIntent",
           "slots": [
             {
-              "name": "Color",
-              "type": "LIST_OF_COLORS"
+              "name": "Wochentag",
+              "type": "WochentagType"
+            },
+            {
+              "name": "ToDo",
+              "type": "ToDoType"
             }
           ],
           "samples": [
-            " Meine Lieblingsfarbe ist {Color}",
-            " Ich mag {Color}"
+            "am {Wochentag} gehe ich {ToDo}",
+            "am {Wochentag} muss ich {ToDo} erledigen",
+            "erstelle ein {ToDo} am {Wochentag}",
+<<<<<<< HEAD
+            "füge {ToDo} am {Wochentag} hinzu"
+=======
+            "f�ge {ToDo} am {Wochentag} hinzu"
+>>>>>>> branch 'master' of https://github.com/sweIhm-ws2018-19/skillproject-do-1.git
           ]
-        },
-        {
-          "name": "WhatsMyColorIntent",
-          "slots": [],
-          "samples": [
-            "was ist meine Lieblingsfarbe",
-            "welche Farbe mag ich am liebsten",
-            "sag mir meine Lieblingsfarbe"
-          ]
-        },
-        {
-          "name": "AMAZON.PauseIntent",
-          "samples": []
-        },
-        {
-          "name": "AMAZON.ResumeIntent",
-          "samples": []
         }
       ],
       "types": [
         {
-          "name": "LIST_OF_COLORS",
+          "name": "ToDoType",
           "values": [
             {
               "name": {
-                "value": "grün"
+                "value": "einkaufen"
+              }
+            }
+          ]
+        },
+        {
+          "name": "WochentagType",
+          "values": [
+            {
+              "name": {
+                "value": "sonntag"
               }
             },
             {
               "name": {
-                "value": "blau"
+                "value": "samstag"
               }
             },
             {
               "name": {
-                "value": "lila"
+                "value": "freitag"
               }
             },
             {
               "name": {
-                "value": "rot"
+                "value": "donnerstag"
               }
             },
             {
               "name": {
-                "value": "orange"
+                "value": "mittwoch"
               }
             },
             {
               "name": {
-                "value": "rosa"
+                "value": "dienstag"
               }
             },
             {
               "name": {
-                "value": "türkis"
-              }
-            },
-            {
-              "name": {
-                "value": "gelb"
+                "value": "montag"
               }
             }
           ]

@@ -39,7 +39,9 @@
             "am {Wochentag} gehe ich {ToDo}",
             "am {Wochentag} muss ich {ToDo} erledigen",
             "erstelle ein {ToDo} am {Wochentag}",
+
             "füge {ToDo} am {Wochentag} hinzu"
+
           ]
         }
       ],
