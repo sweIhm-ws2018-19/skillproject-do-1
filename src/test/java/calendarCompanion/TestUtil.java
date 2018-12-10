@@ -71,6 +71,29 @@ public class TestUtil {
 		assertNotNull(response.getOutputSpeech());
 		return response;
 	}
+	
+    public static HandlerInput mockEmptyInput() {
+        //HandlerInput Mock
+        HandlerInput inputMock = HandlerInput.builder()
+                .withRequestEnvelope(RequestEnvelope.builder()
+                        .withSession(Session.builder().build())
+                        .build())
+                .build();
+        return inputMock;
+    }
+    
+    public static HandlerInput mockInputWithoutSlot() {
+        //HandlerInput Mock
+        HandlerInput inputMock = HandlerInput.builder()
+                .withRequestEnvelope(RequestEnvelope.builder()
+                        .withRequest(IntentRequest.builder()
+                                .withIntent(Intent.builder().build())
+                                .build())
+                        .withSession(Session.builder().build())
+                        .build())
+                .build();
+        return inputMock;
+    }
 
 	public static Response sessionEndedTestForHandle(RequestHandler handler) {
 		final HandlerInput inputMock = TestUtil.mockHandlerInput(null, null, null, null);

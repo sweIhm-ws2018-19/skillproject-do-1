@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.model.Response;
+import com.amazon.ask.model.ui.SsmlOutputSpeech;
 
 import calendarCompanion.handlers.LaunchRequestHandler;
 import calendarCompanion.model.PhrasesAndConstants;
@@ -17,6 +18,7 @@ import static org.mockito.Mockito.when;
 
 public class LaunchRequestHandlerTest {
 	private LaunchRequestHandler handler;
+	  private final static String launchPhrase = "Hallo. Ich bin dein persönlicher Calendar Companion. Mit mir kannst du deinen persönlichen Kalender erstellen und managen. Möchtest du ein ToDo, oder einen Termin hinzufügen?";
 
 
 @Before
@@ -42,6 +44,15 @@ public void testCanHandle() {
 //    final Response response = TestUtil.standardTestForHandle(handler);
 //    assertTrue(response.getOutputSpeech().toString().contains(PhrasesAndConstants.CARD_TITLE));
 //}
+
+@Test
+public void testHandle() {
+    HandlerInput input = TestUtil.mockInputWithoutSlot();
+    Response response = handler.handle(input).get();
+    response.getOutputSpeech();
+    
+    System.out.println(response);
+}
 
 
 }
