@@ -28,7 +28,7 @@ public class AddToDoOnWeekDayHandler implements RequestHandler {
         IntentRequest intentRequest = (IntentRequest) request;      //castet den request in einen intentrequest
         Intent intent = intentRequest.getIntent();      //welcher Intent ist es
         Map<String, Slot> slots = intent.getSlots();    //holt sich die slotListe
-
+ 
         // holt sich den Slot aus dem intent. zB Montag
         Slot wochenTag = slots.get(PhrasesAndConstants.WOCHENTAG_SLOT);
         Slot toDo = slots.get(PhrasesAndConstants.TODO_SLOT);
@@ -47,14 +47,14 @@ public class AddToDoOnWeekDayHandler implements RequestHandler {
             mapper.save(toDoListItemOnWeekDay);
 
             String speechText =
-                    String.format("%s wurde zu deiner ToDoListe am %s hinzugefügt.", toDo.getValue(), wochenTag.getValue());
+                    String.format("%s wurde zu deiner ToDoListe am %s hinzugefï¿½gt.", toDo.getValue(), wochenTag.getValue());
             responseBuilder.withSimpleCard(PhrasesAndConstants.CARD_TITLE, speechText)
                     .withSpeech(speechText)
                     .withShouldEndSession(false);
 
 
         } else {
-            String speechText = "bitte Wochentag nennen, an dem das ToDo hinzugefügt werden soll.";
+            String speechText = "bitte Wochentag nennen, an dem das ToDo hinzugefï¿½gt werden soll.";
             responseBuilder.withSimpleCard(PhrasesAndConstants.CARD_TITLE, speechText)
                     .withSpeech(speechText)
                     .withShouldEndSession(false);

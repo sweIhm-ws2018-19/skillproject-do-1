@@ -1,102 +1,141 @@
 {
-  "interactionModel": {
-    "languageModel": {
-      "invocationName": "calendar companion",
-      "intents": [
-        {
-          "name": "AMAZON.FallbackIntent",
-          "samples": []
-        },
-        {
-          "name": "AMAZON.CancelIntent",
-          "samples": []
-        },
-        {
-          "name": "AMAZON.HelpIntent",
-          "samples": []
-        },
-        {
-          "name": "AMAZON.StopIntent",
-          "samples": []
-        },
-        {
-          "name": "AMAZON.NavigateHomeIntent",
-          "samples": []
-        },
-        {
-          "name": "AddToDoOnWeekDayIntent",
-          "slots": [
-            {
-              "name": "Wochentag",
-              "type": "WochentagType"
-            },
-            {
-              "name": "ToDo",
-              "type": "ToDoType"
-            }
-          ],
-          "samples": [
-            "am {Wochentag} gehe ich {ToDo}",
-            "am {Wochentag} muss ich {ToDo} erledigen",
-            "erstelle ein {ToDo} am {Wochentag}",
-
-            "füge {ToDo} am {Wochentag} hinzu"
-
-          ]
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "calendar companion",
+            "intents": [
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AddToDoOnWeekDayIntent",
+                    "slots": [
+                        {
+                            "name": "Wochentag",
+                            "type": "WochentagType"
+                        },
+                        {
+                            "name": "ToDo",
+                            "type": "ToDoType"
+                        }
+                    ],
+                    "samples": [
+                        "am {Wochentag} gehe ich {ToDo}",
+                        "am {Wochentag} muss ich {ToDo} erledigen",
+                        "erstelle ein {ToDo} am {Wochentag}",
+                        "füge {ToDo} am {Wochentag} hinzu"
+                    ]
+                },
+                {
+                    "name": "GetToDosOnWeekDayIntent",
+                    "slots": [
+                        {
+                            "name": "Wochentag",
+                            "type": "WochentagType"
+                        }
+                    ],
+                    "samples": [
+                        "was muss ich {Wochentag} erledigen",
+                        "sage mir meine Todos am {Wochentag}",
+                        "was steht am {Wochentag} an ",
+                        "was muss ich am {Wochentag} erledigen"
+                    ]
+                },
+                {
+                    "name": "DeleteToDoOnWeekDayIntent",
+                    "slots": [
+                        {
+                            "name": "ToDo",
+                            "type": "ToDoType"
+                        },
+                        {
+                            "name": "Wochentag",
+                            "type": "WochentagType"
+                        }
+                    ],
+                    "samples": [
+                        "lösche {ToDo} am {Wochentag}"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "ToDoType",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "einkaufen"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "WochentagType",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "morgen"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "heute"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sonntag"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "samstag"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "freitag"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "donnerstag"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "mittwoch"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "dienstag"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "montag"
+                            }
+                        }
+                    ]
+                }
+            ]
         }
-      ],
-      "types": [
-        {
-          "name": "ToDoType",
-          "values": [
-            {
-              "name": {
-                "value": "einkaufen"
-              }
-            }
-          ]
-        },
-        {
-          "name": "WochentagType",
-          "values": [
-            {
-              "name": {
-                "value": "sonntag"
-              }
-            },
-            {
-              "name": {
-                "value": "samstag"
-              }
-            },
-            {
-              "name": {
-                "value": "freitag"
-              }
-            },
-            {
-              "name": {
-                "value": "donnerstag"
-              }
-            },
-            {
-              "name": {
-                "value": "mittwoch"
-              }
-            },
-            {
-              "name": {
-                "value": "dienstag"
-              }
-            },
-            {
-              "name": {
-                "value": "montag"
-              }
-            }
-          ]
-        }
-      ]
     }
-  }
 }

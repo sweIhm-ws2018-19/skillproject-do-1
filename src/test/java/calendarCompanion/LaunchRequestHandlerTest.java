@@ -49,9 +49,11 @@ public void testCanHandle() {
 public void testHandle() {
     HandlerInput input = TestUtil.mockInputWithoutSlot();
     Response response = handler.handle(input).get();
-    response.getOutputSpeech();
-    
-    System.out.println(response);
+    SsmlOutputSpeech speech = (SsmlOutputSpeech) response.getOutputSpeech();
+    String speechString = speech.toString();
+//    System.out.println(speech);
+//    System.out.println(speechString);
+  //  assertTrue(speechString.equals(launchPhrase));
 }
 
 

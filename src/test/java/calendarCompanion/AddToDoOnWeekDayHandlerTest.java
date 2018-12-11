@@ -11,19 +11,31 @@ import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.when;
 
 import calendarCompanion.handlers.AddToDoOnWeekDayHandler;
+import calendarCompanion.model.ToDoListItemOnWeekDay;
 
 public class AddToDoOnWeekDayHandlerTest {
     private AddToDoOnWeekDayHandler addToDoOnWeekDayHandler;
+    private ToDoListItemOnWeekDay toDoListItemWeekDay;
     
     @Before
     public void setup() {
         addToDoOnWeekDayHandler = new AddToDoOnWeekDayHandler();
     }
+    
     @Test
     public void testCanHandle() {
         final HandlerInput inputMock = Mockito.mock(HandlerInput.class);
         when(inputMock.matches(any())).thenReturn(true);
         assertTrue(addToDoOnWeekDayHandler.canHandle(inputMock));
+    }
+    
+    @Test
+    public void testHandle() {
+    	final HandlerInput inputMock = Mockito.mock(HandlerInput.class);
+    	toDoListItemWeekDay.setWeekDay("Montag");
+    	toDoListItemWeekDay.setToDo("einkaufen");
+    	
+    	
     }
 
 
