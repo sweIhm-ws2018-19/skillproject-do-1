@@ -37,6 +37,7 @@ public class DeleteToDoOnWeekDayHandler implements RequestHandler {
             responseText = String.format("%s wurde von deiner ToDoListe am %s entfernt.", toDo.getValue(), wochenTag.getValue());
         } else {
             responseText = "bitte Wochentag nennen, an dem das ToDo hinzugefügt werden soll.";
+
         }
         responseBuilder.withSimpleCard(PhrasesAndConstants.CARD_TITLE, responseText)
                 .withSpeech(responseText)

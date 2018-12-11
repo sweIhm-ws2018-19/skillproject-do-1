@@ -1,18 +1,12 @@
 package calendarCompanion.handlers;
 
+import calendarCompanion.DynamoDBOperations.DynamoDBAccess;
 import calendarCompanion.model.PhrasesAndConstants;
-import calendarCompanion.model.ToDoListItemOnWeekDay;
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
 import com.amazon.ask.model.*;
 import com.amazon.ask.response.ResponseBuilder;
-import com.amazonaws.regions.Regions;
-import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
-import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBQueryExpression;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -25,6 +19,8 @@ public class GetToDosOnWeekDayHandler implements RequestHandler {
     public boolean canHandle(HandlerInput input) {
         return input.matches(intentName("GetToDosOnWeekDayIntent"));
     }
+
+    private DynamoDBAccess dynamoDBAccess;
 
     @Override
     public Optional<Response> handle(HandlerInput input) {
@@ -39,40 +35,23 @@ public class GetToDosOnWeekDayHandler implements RequestHandler {
         ResponseBuilder responseBuilder = input.getResponseBuilder();
 
         if (wochenTag.getValue() != null && wochenTag.getResolutions().toString().contains("ER_SUCCESS_MATCH")) {
-            AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-                    .withRegion(Regions.EU_WEST_1)
-                    .build();
-            DynamoDBMapper mapper = new DynamoDBMapper(client);
+            List<String> toDos;
+            dynamoDBAccess = new DynamoDBAccess(wochenTag.getValue());
+            toDos = dynamoDBAccess.queryToDos();
 
-            //Liste für bestimmten Wochentag aus DB holen
-            ToDoListItemOnWeekDay partitionKey = new ToDoListItemOnWeekDay();
-            //todolistitem für items mit dem key "wochentag" aus der DB holen
-            partitionKey.setWeekDay(wochenTag.getValue());
-            DynamoDBQueryExpression<ToDoListItemOnWeekDay> queryExpression = new DynamoDBQueryExpression<ToDoListItemOnWeekDay>()
-                    .withHashKeyValues(partitionKey);
-
-            //toDoItems in eine Liste schreiben
-            List<ToDoListItemOnWeekDay> toDoList = mapper.query(ToDoListItemOnWeekDay.class, queryExpression);
-            //nur todos in eine liste schreiben und anschließend zu string zusammenfügen
-            List<String> toDos = new ArrayList<>();
-            for(ToDoListItemOnWeekDay i:toDoList)
-                toDos.add(i.getToDo());
-            //build responseText:
-            toDoItemString = String.join(", ", toDos);
-
-            responseText =
-                    String.format("folgende ToDos wurden am %s ihrer Liste hinzugefügt: %s", wochenTag.getValue(), toDoItemString);
-            responseBuilder.withSimpleCard(PhrasesAndConstants.CARD_TITLE, responseText)
-                    .withSpeech(responseText)
-                    .withShouldEndSession(false);
+            if (toDos.isEmpty())
+                responseText = String.format("am %s hast du rein gar nichts vor!", wochenTag.getValue());
+            else {
+                toDoItemString = String.join(", ", toDos);
+                responseText =
+                        String.format("folgende ToDos stehen am %s auf der Liste : %s", wochenTag.getValue(), toDoItemString);
+            }
+        } else {
+            responseText = "Bitte einen Wochentag nennen, von dem die ToDoListe aufgerufen werden soll. z.B: was steht am Montag an?";
         }
-        else {
-            String speechText = "bitte Wochentag nennen, von dem die ToDoListe aufgerufen werden soll.";
-            responseBuilder.withSimpleCard(PhrasesAndConstants.CARD_TITLE, speechText)
-                    .withSpeech(speechText)
-                    .withShouldEndSession(false);
-        }
-
+        responseBuilder.withSimpleCard(PhrasesAndConstants.CARD_TITLE, responseText)
+                .withSpeech(responseText)
+                .withShouldEndSession(false);
         return responseBuilder.build();
     }
 }
