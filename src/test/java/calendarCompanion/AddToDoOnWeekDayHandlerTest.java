@@ -29,14 +29,14 @@ public class AddToDoOnWeekDayHandlerTest {
         assertTrue(addToDoOnWeekDayHandler.canHandle(inputMock));
     }
     
-    @Test
-    public void testHandle() {
-    	final HandlerInput inputMock = Mockito.mock(HandlerInput.class);
-    	toDoListItemWeekDay.setWeekDay("Montag");
-    	toDoListItemWeekDay.setToDo("einkaufen");
-    	
-    	
-    }
+//    @Test
+//    public void testHandle() {
+//    	final HandlerInput inputMock = Mockito.mock(HandlerInput.class);
+//    	toDoListItemWeekDay.setWeekDay("Montag");
+//    	toDoListItemWeekDay.setToDo("einkaufen");
+//    	
+//    	
+//    }
 
 
 }
