@@ -13,7 +13,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
 public class DateTimeDE {
 
@@ -25,9 +24,7 @@ public class DateTimeDE {
     public DateTimeDE(){}
     
     public void httpGetTimeAndDate() throws IOException{
-        //Build HTTP Request
-        //API Endpoint : api.timezonedb.com/v2.1/get-time-zone
-        //Parameters: key = KH3NW23Z0BX (to validate registered Account), format = json(response-Body), zone = Europe/Berlin
+
         String url = "http://api.timezonedb.com/v2.1/get-time-zone?key=QKH3NW23Z0BX&format=json&by=zone&zone=Europe/Berlin";
         URL obj = new URL(url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
@@ -43,16 +40,13 @@ public class DateTimeDE {
         }
         in.close();
 
-        //map to javaclass
         ObjectMapper mapper = new ObjectMapper();
         DateAndTime dnt = mapper.readValue(response.toString(), DateAndTime.class);
-
         System.out.println(dnt.getFormatted());
-
         List<String> formattedResponseTimeAndDate = Arrays.asList(dnt.getFormatted().split(" "));
         List<String> dateList = Arrays.asList(formattedResponseTimeAndDate.get(0).split("-"));
 
-        this.time = formattedResponseTimeAndDate.get(1);
+        this.time = formattedResponseTimeAndDate.get(1).substring(0,5);
         this.year = dateList.get(0);
         this.day = dateList.get(2);
 
