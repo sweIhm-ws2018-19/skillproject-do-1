@@ -1,4 +1,4 @@
-package calendarCompanion;
+/*package calendarCompanion;
 
 import static org.junit.Assert.*;
 
@@ -16,3 +16,4 @@ public class GetToDosOnWeekDayHandlerTest {
 	persistantAttributes.put(PhrasesAndConstants.TODO_SLOT, "Test");
 
 }
+*/

@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.mockito.Mockito;
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.model.Response;
+
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.when;
 
@@ -19,27 +20,22 @@ import calendarCompanion.model.ToDoListItemOnWeekDay;
 public class AddToDoOnWeekDayHandlerTest {
     private AddToDoOnWeekDayHandler addToDoOnWeekDayHandler;
     private ToDoListItemOnWeekDay toDoListItemWeekDay;
-    
+
     @Before
     public void setup() {
         addToDoOnWeekDayHandler = new AddToDoOnWeekDayHandler();
     }
-    
+
     @Test
     public void testCanHandle() {
         final HandlerInput inputMock = Mockito.mock(HandlerInput.class);
         when(inputMock.matches(any())).thenReturn(true);
         assertTrue(addToDoOnWeekDayHandler.canHandle(inputMock));
     }
-    
+
     @Test
     public void testHandle() {
-    	final HandlerInput inputMock = Mockito.mock(HandlerInput.class);
-    	final Map<String, Object> sessionAttributes = new HashMap<>();
-    	
-    	
-    	
+        final HandlerInput inputMock = Mockito.mock(HandlerInput.class);
+        final Map<String, Object> sessionAttributes = new HashMap<>();
     }
-
-
 }
