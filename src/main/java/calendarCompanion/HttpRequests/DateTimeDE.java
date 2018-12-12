@@ -1,7 +1,10 @@
 package calendarCompanion.HttpRequests;
 
 import calendarCompanion.model.DateAndTime;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
+import jdk.nashorn.internal.objects.annotations.Getter;
+import jdk.nashorn.internal.objects.annotations.Setter;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,6 +13,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 public class DateTimeDE {
 
@@ -18,6 +22,8 @@ public class DateTimeDE {
     private String year;
     private String time;
 
+    public DateTimeDE(){}
+    
     public void httpGetTimeAndDate() throws IOException{
         //Build HTTP Request
         //API Endpoint : api.timezonedb.com/v2.1/get-time-zone
@@ -27,27 +33,25 @@ public class DateTimeDE {
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
         con.setRequestMethod("GET");
         con.setRequestProperty("Content-Type", "application/json");
-        con.setConnectTimeout(5000);
-        con.setReadTimeout(5000);
 
         //read response string(JSON)
-        BufferedReader in = new BufferedReader(
-                new InputStreamReader(con.getInputStream()));
+        BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
         String inputLine;
         StringBuffer response = new StringBuffer();
         while ((inputLine = in.readLine()) != null) {
             response.append(inputLine);
         }
         in.close();
-        //json to DateAndTime
-        Gson gson = new Gson();
-        DateAndTime dateAndTime = gson.fromJson(response.toString(), DateAndTime.class);
-        //response formatted Time and Date should look like "yyyy-mm-dd hh:mm:ss"
-        //split into two strings "yyyy-mm-dd" and "hh:mm:ss"
-        List<String> formattedResponseTimeAndDate = Arrays.asList(dateAndTime.getFormatted().split(" "));
-        //split date into three strings : "yyyy, mm and dd"
+
+        //map to javaclass
+        ObjectMapper mapper = new ObjectMapper();
+        DateAndTime dnt = mapper.readValue(response.toString(), DateAndTime.class);
+
+        System.out.println(dnt.getFormatted());
+
+        List<String> formattedResponseTimeAndDate = Arrays.asList(dnt.getFormatted().split(" "));
         List<String> dateList = Arrays.asList(formattedResponseTimeAndDate.get(0).split("-"));
-        //set Date and Time attributes
+
         this.time = formattedResponseTimeAndDate.get(1);
         this.year = dateList.get(0);
         this.day = dateList.get(2);
