@@ -18,7 +18,7 @@ import static org.mockito.Mockito.when;
 
 public class LaunchRequestHandlerTest {
 	private LaunchRequestHandler handler;
-	  private final static String launchPhrase = "Hallo. Ich bin dein persönlicher Calendar Companion. Mit mir kannst du deinen persönlichen Kalender erstellen und managen. Möchtest du ein ToDo, oder einen Termin hinzufügen?";
+    private final static String LAUNCH_PHRASE = "Hallo. Ich bin dein persönlicher Calendar Companion. Mit mir kannst du deinen persönlichen Kalender erstellen und managen. Möchtest du ein ToDo, oder einen Termin hinzufügen?";
 
 
 @Before
@@ -37,18 +37,13 @@ public void testCanHandle() {
     final HandlerInput inputMock = Mockito.mock(HandlerInput.class);
     when(inputMock.matches(any())).thenReturn(true);
     assertTrue(handler.canHandle(inputMock));
+}
 
     @Test
     public void testHandle() {
         HandlerInput input = TestUtil.mockInputWithoutSlot();
         Response response = handler.handle(input).get();
-        SsmlOutputSpeech speech = (SsmlOutputSpeech) response.getOutputSpeech();
-        String speechString = speech.toString();
-        int indexOfResponse = speechString.indexOf("Hallo");
-        String substringOfSSml = speechString.substring(indexOfResponse);
-        substringOfSSml = substringOfSSml.substring(0, substringOfSSml.length() - 10); //deletes <speak> from ssml
-        System.out.println(substringOfSSml);
-        assertEquals(substringOfSSml, launchPhrase);
+        assertTrue(response.getOutputSpeech().toString().contains(LAUNCH_PHRASE));
     }
 
 
