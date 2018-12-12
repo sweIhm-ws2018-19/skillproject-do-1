@@ -14,7 +14,7 @@ import java.util.Optional;
 
 import static com.amazon.ask.request.Predicates.intentName;
 
-public class GetToDosOnWeekDayHandler implements RequestHandler {
+public class GetToDosOnWeekDaysHandler implements RequestHandler {
     @Override
     public boolean canHandle(HandlerInput input) {
         return input.matches(intentName("GetToDosOnWeekDayIntent"));
