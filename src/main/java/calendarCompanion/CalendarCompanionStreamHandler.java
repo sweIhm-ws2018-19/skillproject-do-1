@@ -16,7 +16,7 @@ public class CalendarCompanionStreamHandler extends SkillStreamHandler {
                         new HelpIntentHandler(),
                         new FallbackIntentHandler(),
                         new AddToDoOnWeekDayHandler(),
-                        new GetToDosOnWeekDayHandler(),
+                        new GetToDosOnWeekDaysHandler(),
                         new DeleteToDoOnWeekDayHandler(),
                         new AddToDoHelpIntentHandler(),
                         new DeleteToDoHelpIntentHandler(),
