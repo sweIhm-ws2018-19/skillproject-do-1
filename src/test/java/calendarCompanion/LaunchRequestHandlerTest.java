@@ -37,24 +37,19 @@ public void testCanHandle() {
     final HandlerInput inputMock = Mockito.mock(HandlerInput.class);
     when(inputMock.matches(any())).thenReturn(true);
     assertTrue(handler.canHandle(inputMock));
-}
 
-//@Test
-//public void testHandle() {
-//    final Response response = TestUtil.standardTestForHandle(handler);
-//    assertTrue(response.getOutputSpeech().toString().contains(PhrasesAndConstants.CARD_TITLE));
-//}
-
-@Test
-public void testHandle() {
-    HandlerInput input = TestUtil.mockInputWithoutSlot();
-    Response response = handler.handle(input).get();
-    SsmlOutputSpeech speech = (SsmlOutputSpeech) response.getOutputSpeech();
-    String speechString = speech.toString();
-    System.out.println(speech);
-    System.out.println(speechString);
-   // assertTrue(speechString.equals(launchPhrase));
-}
+    @Test
+    public void testHandle() {
+        HandlerInput input = TestUtil.mockInputWithoutSlot();
+        Response response = handler.handle(input).get();
+        SsmlOutputSpeech speech = (SsmlOutputSpeech) response.getOutputSpeech();
+        String speechString = speech.toString();
+        int indexOfResponse = speechString.indexOf("Hallo");
+        String substringOfSSml = speechString.substring(indexOfResponse);
+        substringOfSSml = substringOfSSml.substring(0, substringOfSSml.length() - 10); //deletes <speak> from ssml
+        System.out.println(substringOfSSml);
+        assertEquals(substringOfSSml, launchPhrase);
+    }
 
 
 }
