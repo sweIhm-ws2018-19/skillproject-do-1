@@ -51,9 +51,9 @@ public void testHandle() {
     Response response = handler.handle(input).get();
     SsmlOutputSpeech speech = (SsmlOutputSpeech) response.getOutputSpeech();
     String speechString = speech.toString();
-//    System.out.println(speech);
-//    System.out.println(speechString);
-  //  assertTrue(speechString.equals(launchPhrase));
+    System.out.println(speech);
+    System.out.println(speechString);
+   // assertTrue(speechString.equals(launchPhrase));
 }
 
 

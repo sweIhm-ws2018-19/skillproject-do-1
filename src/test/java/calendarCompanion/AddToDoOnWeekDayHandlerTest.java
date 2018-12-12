@@ -10,6 +10,9 @@ import com.amazon.ask.model.Response;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.when;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import calendarCompanion.handlers.AddToDoOnWeekDayHandler;
 import calendarCompanion.model.ToDoListItemOnWeekDay;
 
@@ -29,14 +32,14 @@ public class AddToDoOnWeekDayHandlerTest {
         assertTrue(addToDoOnWeekDayHandler.canHandle(inputMock));
     }
     
-//    @Test
-//    public void testHandle() {
-//    	final HandlerInput inputMock = Mockito.mock(HandlerInput.class);
-//    	toDoListItemWeekDay.setWeekDay("Montag");
-//    	toDoListItemWeekDay.setToDo("einkaufen");
-//    	
-//    	
-//    }
+    @Test
+    public void testHandle() {
+    	final HandlerInput inputMock = Mockito.mock(HandlerInput.class);
+    	final Map<String, Object> sessionAttributes = new HashMap<>();
+    	
+    	
+    	
+    }
 
 
 }
