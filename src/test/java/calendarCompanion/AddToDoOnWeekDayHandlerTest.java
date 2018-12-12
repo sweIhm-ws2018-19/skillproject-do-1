@@ -2,6 +2,8 @@ package calendarCompanion;
 
 import static org.junit.Assert.*;
 
+import calendarCompanion.model.PhrasesAndConstants;
+import org.apache.http.impl.EnglishReasonPhraseCatalog;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -36,6 +38,8 @@ public class AddToDoOnWeekDayHandlerTest {
     public void testHandle() {
     	final HandlerInput inputMock = Mockito.mock(HandlerInput.class);
     	final Map<String, Object> sessionAttributes = new HashMap<>();
+    	sessionAttributes.put(PhrasesAndConstants.TODO_SLOT, "Test");
+    	sessionAttributes.put(PhrasesAndConstants.WOCHENTAG_SLOT, "Montag");
     	
     	
     	

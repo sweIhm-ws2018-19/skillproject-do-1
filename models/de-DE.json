@@ -39,7 +39,7 @@
             "am {Wochentag} gehe ich {ToDo}",
             "am {Wochentag} muss ich {ToDo} erledigen",
             "erstelle ein {ToDo} am {Wochentag}",
-            "füge {ToDo} am {Wochentag} hinzu"
+            "fï¿½ge {ToDo} am {Wochentag} hinzu"
           ]
         },
         {
@@ -70,7 +70,7 @@
             }
           ],
           "samples": [
-            "lösche {ToDo} am {Wochentag}"
+            "lÃ¶sche {ToDo} am {Wochentag}"
           ]
         }
       ],
