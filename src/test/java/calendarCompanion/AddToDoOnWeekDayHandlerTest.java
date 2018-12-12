@@ -21,6 +21,7 @@ import static org.mockito.Mockito.when;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 import calendarCompanion.handlers.AddToDoOnWeekDayHandler;
 import calendarCompanion.model.ToDoListItemOnWeekDay;
@@ -30,7 +31,7 @@ public class AddToDoOnWeekDayHandlerTest {
     private HandlerInput inputMock;
     private ToDoListItemOnWeekDay toDoListItemWeekDay;
     
-    @BeforeEach
+    @Before
     public void setup() {
         addToDoOnWeekDayHandler = new AddToDoOnWeekDayHandler();
         inputMock = mock(HandlerInput.class);
@@ -39,31 +40,32 @@ public class AddToDoOnWeekDayHandlerTest {
     
     @Test
     public void testCanHandle() {
-        final HandlerInput inputMock = mock(HandlerInput.class);
         when(inputMock.matches(any())).thenReturn(true);
         assertTrue(addToDoOnWeekDayHandler.canHandle(inputMock));
     }
     
     @Test
     public void testHandle() {
-   // 	final HandlerInput inputMock = Mockito.mock(HandlerInput.class);
-    //	final Map<String, Slot> sessionAttributes = new HashMap<>();
-    //	sessionAttributes.put(PhrasesAndConstants.TODO_SLOT, "Test");
-    //	sessionAttributes.put(PhrasesAndConstants.WOCHENTAG_SLOT, "Montag");
-    //	inputMock.getAttributesManager();
+    	//final HandlerInput inputMock = Mockito.mock(HandlerInput.class);
+    	//final Map<String, Slot> sessionAttributes = new HashMap<>();
+    	//sessionAttributes.put(PhrasesAndConstants.TODO_SLOT, "Test");
+    	//sessionAttributes.put(PhrasesAndConstants.WOCHENTAG_SLOT, "Montag");
+    	//inputMock.getAttributesManager();
 
         AttributesManager attributeManager = mock(AttributesManager.class);
         when(inputMock.getAttributesManager()).thenReturn(attributeManager);
         final Map<String, Slot> sessionAttributes = new HashMap<>();
         sessionAttributes.put(PhrasesAndConstants.TODO_SLOT, Slot.builder().withValue("Test").build());
-        sessionAttributes.put(PhrasesAndConstants.WOCHENTAG_SLOT, Slot.builder().withValue("Montag").build());
+      sessionAttributes.put(PhrasesAndConstants.WOCHENTAG_SLOT, Slot.builder().withValue("Montag").build());
 
         Intent intent = Intent.builder().withSlots(sessionAttributes).build();
         when(inputMock.getRequest()).thenReturn(IntentRequest.builder().withIntent(intent).build());
 
         when(inputMock.getResponseBuilder()).thenReturn(new ResponseBuilder());
 
-        addToDoOnWeekDayHandler.handle(inputMock);
+        Optional<Response> response = addToDoOnWeekDayHandler.handle(inputMock);
+
+        assertTrue(response.isPresent());
     	
     	
     }
