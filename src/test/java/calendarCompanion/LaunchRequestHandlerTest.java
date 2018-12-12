@@ -18,7 +18,7 @@ import static org.mockito.Mockito.when;
 
 public class LaunchRequestHandlerTest {
 	private LaunchRequestHandler handler;
-    private final static String LAUNCH_PHRASE = "Hallo. Ich bin dein persönlicher Calendar Companion. Mit mir kannst du deinen persönlichen Kalender erstellen und managen. Möchtest du ein ToDo, oder einen Termin hinzufügen?";
+    private final static String LAUNCH_PHRASE = "Hallo. Ich bin dein persönlicher Calendar Companion. Mit mir kannst du deinen persönlichen Kalender erstellen und managen. Wenn du Hilfe brauchst, sag Hilfe";
 
 
 @Before
