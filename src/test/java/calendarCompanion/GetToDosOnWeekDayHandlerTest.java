@@ -12,7 +12,21 @@ import calendarCompanion.model.PhrasesAndConstants;
 
 public class GetToDosOnWeekDayHandlerTest {
 	
-	Map<String, Object> persistentAttributes = new HashMap<>();
-	persistantAttributes.put(PhrasesAndConstants.TODO_SLOT, "Test");
+//	Map<String, Object> persistentAttributes = new HashMap<>();
+//	persistantAttributes.put(PhrasesAndConstants.TODO_SLOT, "Test");
+
+	private GetToDosOnWeekDayHandler handler;
+
+	@Before
+	public void setup() {
+		handler = new GetToDosOnWeekDayHandler();
+	}
+
+	@Test
+	public void testCanHandle() {
+		final HandlerInput inputMock = Mockito.mock(HandlerInput.class);
+		when(inputMock.matches(any())).thenReturn(true);
+		assertTrue(handler.canHandle(inputMock));
+	}
 
 }
