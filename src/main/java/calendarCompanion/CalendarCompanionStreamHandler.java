@@ -17,10 +17,7 @@ public class CalendarCompanionStreamHandler extends SkillStreamHandler {
                         new FallbackIntentHandler(),
                         new AddToDoOnWeekDayHandler(),
                         new GetToDosOnWeekDaysHandler(),
-                        new DeleteToDoOnWeekDayHandler(),
-                        new AddToDoHelpIntentHandler(),
-                        new DeleteToDoHelpIntentHandler(),
-                        new GetToDosHelpIntentHandler())
+                        new DeleteToDoOnWeekDayHandler())
                 .withTableName("toDoData")
                 .withAutoCreateTable(true)
                 .build();
