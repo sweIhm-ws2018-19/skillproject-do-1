@@ -27,13 +27,13 @@ public class DynamoDBAccess {
         this.toDo = toDo;
         this.weekDay = weekDay;
         this.weekDayForDBAccess = Character.toUpperCase(weekDay.charAt(0)) + weekDay.substring(1);
-        this.weekDayForDBAccess = weekDayForDBAccess.replaceAll("\\s", "");
+        this.weekDayForDBAccess = weekDayForDBAccess.trim();
     }
 
     public DynamoDBAccess(String weekDay){
         this.weekDay = weekDay;
         this.weekDayForDBAccess = Character.toUpperCase(weekDay.charAt(0)) + weekDay.substring(1);
-        this.weekDayForDBAccess = weekDayForDBAccess.replaceAll("\\s", "");
+        this.weekDayForDBAccess = weekDayForDBAccess.trim();
     }
 
     public List<String> queryToDos() {
@@ -55,7 +55,7 @@ public class DynamoDBAccess {
 
     public void deleteToDo() {
         String weekDayUpperCase = Character.toUpperCase(weekDay.charAt(0)) + weekDay.substring(1);
-        weekDayUpperCase = weekDayUpperCase.replaceAll("\\s", "");
+        weekDayUpperCase = weekDayUpperCase.trim();
         partitionKey.setWeekDay(weekDayUpperCase);
         partitionKey.setToDo(toDo);
         mapper.delete(partitionKey);
