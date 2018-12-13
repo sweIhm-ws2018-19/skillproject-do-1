@@ -2,6 +2,7 @@ package calendarCompanion;
 
 import static org.junit.Assert.*;
 
+import calendarCompanion.HttpRequests.DateTimeDE;
 import org.junit.Test;
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.model.Response;
@@ -12,14 +13,16 @@ import calendarCompanion.model.PhrasesAndConstants;
 
 import org.junit.Before;
 import org.mockito.Mockito;
+
+import java.io.IOException;
+
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.when;
 
 public class LaunchRequestHandlerTest {
 	private LaunchRequestHandler handler;
-    private final static String LAUNCH_PHRASE = "Hallo. Ich bin dein persönlicher Calendar Companion. Mit mir kannst du deinen persönlichen Kalender erstellen und managen. Wenn du Hilfe brauchst, sag Hilfe";
-
+    private DateTimeDE dateTimeDe = new DateTimeDE();
 
 @Before
 public void setup() {
@@ -41,8 +44,19 @@ public void testCanHandle() {
 
     @Test
     public void testHandle() {
+        try {
+            dateTimeDe.httpGetTimeAndDate();
+        }
+        catch(Exception e)
+        {
+            System.out.println("httpGet: " + e.getMessage());
+        }
+        String month = dateTimeDe.getMonth();
+        String day = dateTimeDe.getDay();
+        String time = dateTimeDe.getTime();
         HandlerInput input = TestUtil.mockInputWithoutSlot();
         Response response = handler.handle(input).get();
+        String LAUNCH_PHRASE = "Hallo, es ist " + month + " der " + day + "te, "+ time + " Uhr. Ich bin dein persönlicher Calendar Companion. Mit mir kannst du deinen Kalender erstellen und managen. Möchtest du ein ToDo, oder einen Termin hinzufügen?";
         assertTrue(response.getOutputSpeech().toString().contains(LAUNCH_PHRASE));
     }
 

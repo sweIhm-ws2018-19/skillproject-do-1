@@ -16,7 +16,7 @@ import static org.mockito.Mockito.when;
 
 public class AddToDoHelpIntentHandlerTest {
     AddToDoHelpIntentHandler helpHandler;
-    private final static String HELP_PHRASE = "Sag mir welchen to-do und an welchem Wochentag du hinzufügen möchtest. Du kannst zum Beispiel sagen: am Montag gehe ich einkaufen oder am Dienstag muss ich {ToDo} erledigen"
+    private final static String HELP_PHRASE = "Sag mir welchen toDo und an welchem Wochentag du hinzufügen möchtest. Du kannst zum Beispiel sagen: am Montag gehe ich einkaufen oder füge sport am Freitag hinzu"
             + "Du kannst mir auch fragen: Alexa, füge Einkaufen am Mittwoch hinzu oder erstelle ein Einkaufen am Donnerstag";
 
     @Before
