@@ -1,50 +1,36 @@
 package calendarCompanion.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class DateAndTime {
 
-    //this Class is the model for the JSON Response from timezonedb API
-
-    @SerializedName("status")
-    @Expose
+    @JsonProperty("status")
     private String status;
-    @SerializedName("message")
-    @Expose
+    @JsonProperty("message")
     private String message;
-    @SerializedName("countryCode")
-    @Expose
+    @JsonProperty("countryCode")
     private String countryCode;
-    @SerializedName("countryName")
-    @Expose
+    @JsonProperty("countryName")
     private String countryName;
-    @SerializedName("zoneName")
-    @Expose
+    @JsonProperty("zoneName")
     private String zoneName;
-    @SerializedName("abbreviation")
-    @Expose
+    @JsonProperty("abbreviation")
     private String abbreviation;
-    @SerializedName("gmtOffset")
-    @Expose
+    @JsonProperty("gmtOffset")
     private Integer gmtOffset;
-    @SerializedName("dst")
-    @Expose
+    @JsonProperty("dst")
     private String dst;
-    @SerializedName("zoneStart")
-    @Expose
+    @JsonProperty("zoneStart")
     private Integer zoneStart;
-    @SerializedName("zoneEnd")
-    @Expose
+    @JsonProperty("zoneEnd")
     private Integer zoneEnd;
-    @SerializedName("nextAbbreviation")
-    @Expose
+    @JsonProperty("nextAbbreviation")
     private String nextAbbreviation;
-    @SerializedName("timestamp")
-    @Expose
+    @JsonProperty("timestamp")
     private Integer timestamp;
-    @SerializedName("formatted")
-    @Expose
+    @JsonProperty("formatted")
     private String formatted;
 
     public String getFormatted() {

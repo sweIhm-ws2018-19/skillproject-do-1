@@ -1,4 +1,5 @@
 package calendarCompanion;
+
 import com.amazon.ask.attributes.AttributesManager;
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
@@ -8,9 +9,11 @@ import com.amazon.ask.response.ResponseBuilder;
 import calendarCompanion.model.PhrasesAndConstants;
 
 import org.mockito.Mockito;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
+
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.when;
 
@@ -62,21 +65,21 @@ public class TestUtil {
 		return input;
 	}
 
-	public static Response standardTestForHandle(RequestHandler handler) {
-		final Map<String, Object> sessionAttributes = new HashMap<>();
-		final Map<String, Object> persistentAttributes = new HashMap<>();
-		sessionAttributes.put(PhrasesAndConstants.TODO_SLOT, "Test");
-		persistentAttributes.put(PhrasesAndConstants.TODO_SLOT, "Test");
-		final HandlerInput inputMock = TestUtil.mockHandlerInput(null, sessionAttributes, persistentAttributes, null);
-		final Optional<Response> res = handler.handle(inputMock);
-		assertTrue(res.isPresent());
-		final Response response = res.get();
+    public static Response standardTestForHandle(RequestHandler handler) {
+        final Map<String, Object> sessionAttributes = new HashMap<>();
+        final Map<String, Object> persistentAttributes = new HashMap<>();
+        sessionAttributes.put(PhrasesAndConstants.TODO_SLOT, "Test");
+        persistentAttributes.put(PhrasesAndConstants.TODO_SLOT, "Test");
+        final HandlerInput inputMock = TestUtil.mockHandlerInput(null, sessionAttributes, persistentAttributes, null);
+        final Optional<Response> res = handler.handle(inputMock);
+        assertTrue(res.isPresent());
+        final Response response = res.get();
 //assertFalse(response.getShouldEndSession());
-		assertNotEquals("Test", response.getReprompt());
-		assertNotNull(response.getOutputSpeech());
-		return response;
-	}
-	
+        assertNotEquals("Test", response.getReprompt());
+        assertNotNull(response.getOutputSpeech());
+        return response;
+    }
+
     public static HandlerInput mockEmptyInput() {
         //HandlerInput Mock
         HandlerInput inputMock = HandlerInput.builder()
@@ -86,7 +89,7 @@ public class TestUtil {
                 .build();
         return inputMock;
     }
-    
+
     public static HandlerInput mockInputWithoutSlot() {
         //HandlerInput Mock
         HandlerInput inputMock = HandlerInput.builder()
@@ -100,12 +103,12 @@ public class TestUtil {
         return inputMock;
     }
 
-	public static Response sessionEndedTestForHandle(RequestHandler handler) {
-		final HandlerInput inputMock = TestUtil.mockHandlerInput(null, null, null, null);
-		final Optional<Response> res = handler.handle(inputMock);
-		assertTrue(res.isPresent());
-		final Response response = res.get();
-		assertTrue(response.getShouldEndSession());
-		return response;
-	}
+    public static Response sessionEndedTestForHandle(RequestHandler handler) {
+        final HandlerInput inputMock = TestUtil.mockHandlerInput(null, null, null, null);
+        final Optional<Response> res = handler.handle(inputMock);
+        assertTrue(res.isPresent());
+        final Response response = res.get();
+        assertTrue(response.getShouldEndSession());
+        return response;
+    }
 }

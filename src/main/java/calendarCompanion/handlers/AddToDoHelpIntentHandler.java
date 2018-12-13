@@ -16,7 +16,7 @@ public class AddToDoHelpIntentHandler implements RequestHandler {
 	 
 	 @Override
 	    public Optional<Response> handle(HandlerInput input) {
-	        String speechText = "Sag mir welchen to-do und an welchem Wochentag du hinzufügen möchtest. Du kannst zum Beispiel sagen: am Montag gehe ich einkaufen oder am Dienstag muss ich {ToDo} erledigen"
+	        String speechText = "Sag mir welchen toDo und an welchem Wochentag du hinzufügen möchtest. Du kannst zum Beispiel sagen: am Montag gehe ich einkaufen oder füge sport am Freitag hinzu"
 	        		+ "Du kannst mir auch fragen: Alexa, füge Einkaufen am Mittwoch hinzu oder erstelle ein Einkaufen am Donnerstag";
 	        String repromptText = "add help";
 	        return input.getResponseBuilder()
