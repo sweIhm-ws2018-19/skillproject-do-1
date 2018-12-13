@@ -36,10 +36,12 @@
             }
           ],
           "samples": [
+            "am {Wochentag} muss ich {ToDo}",
+            "erstelle {ToDo} am {Wochentag}",
+            "{Wochentag} muss ich {ToDo}",
             "am {Wochentag} gehe ich {ToDo}",
             "am {Wochentag} muss ich {ToDo} erledigen",
-            "erstelle ein {ToDo} am {Wochentag}",
-            "füge {ToDo} am {Wochentag} hinzu"
+            "erstelle ein {ToDo} am {Wochentag}"
           ]
         },
         {
@@ -51,6 +53,7 @@
             }
           ],
           "samples": [
+            "was muss ich am {Wochentag} machen",
             "was muss ich {Wochentag} erledigen",
             "sage mir meine Todos am {Wochentag}",
             "was steht am {Wochentag} an ",
@@ -71,27 +74,6 @@
           ],
           "samples": [
             "lösche {ToDo} am {Wochentag}"
-          ]
-        },
-        {
-          "name": "AddToDoHelpIntentHandler",
-          "slots": [],
-          "samples": [
-            "Add Hilfe"
-          ]
-        },
-        {
-          "name": "DeleteToDoHelpIntentHandler",
-          "slots": [],
-          "samples": [
-            "Delete Hilfe"
-          ]
-        },
-        {
-          "name": "GetToDosHelpIntentHandler",
-          "slots": [],
-          "samples": [
-            "Get Hilfe"
           ]
         }
       ],
