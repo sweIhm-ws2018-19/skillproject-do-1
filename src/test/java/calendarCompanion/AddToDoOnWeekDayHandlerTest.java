@@ -42,23 +42,39 @@ public class AddToDoOnWeekDayHandlerTest {
         assertTrue(addToDoOnWeekDayHandler.canHandle(inputMock));
     }
     
-   /* @Test
+    @Test
     public void testHandle() {
-        AttributesManager attributeManager = mock(AttributesManager.class);
+     /*   AttributesManager attributeManager = mock(AttributesManager.class);
         when(inputMock.getAttributesManager()).thenReturn(attributeManager);
 
-        Map<String, Slot> sessionAttributes = new HashMap<String, Slot>();
-        sessionAttributes.put(PhrasesAndConstants.TODO_SLOT, Slot.builder().withValue("Test").build());
-      sessionAttributes.put(PhrasesAndConstants.WOCHENTAG_SLOT, Slot.builder().withValue("Montag").build());
+        Map<String, String> sessionAttributes = new HashMap<String, String>();
+       //sessionAttributes.put(PhrasesAndConstants.TODO_SLOT, Slot.builder().withValue("Test").build());
+      //sessionAttributes.put(PhrasesAndConstants.WOCHENTAG_SLOT, Slot.builder().withValue("Montag").build());
 
-        Intent intent = Intent.builder().withSlots(sessionAttributes).build();
+        sessionAttributes.put(PhrasesAndConstants.TODO_SLOT, "Test");
+        sessionAttributes.put(PhrasesAndConstants.WOCHENTAG_SLOT, "Montag");
+        //Intent intent = Intent.builder().withSlots(sessionAttributes).build();
         when(inputMock.getRequestEnvelope()).thenReturn(RequestEnvelope.builder().build());
         when(inputMock.getRequest()).thenReturn(IntentRequest.builder().withIntent(intent).build());
         when(inputMock.getResponseBuilder()).thenReturn(new ResponseBuilder());
+        when(attributeManager.getSessionAttributes()).thenReturn(sessionAttributes);
 
-        addToDoOnWeekDayHandler.handle(inputMock);
-    	
-    }*/
+        addToDoOnWeekDayHandler.handle(inputMock);*/
+
+        /*Map<String, String> slots = new HashMap<String, String>();
+        slots.put(PhrasesAndConstants.TODO_SLOT,"Test" );
+        slots.put(PhrasesAndConstants.WOCHENTAG_SLOT, "Montag");
+
+        Map<String, Object> sessionAttributes = new HashMap<String, Object>();
+        sessionAttributes.put(PhrasesAndConstants.TODO_SLOT, "Test");
+        sessionAttributes.put(PhrasesAndConstants.WOCHENTAG_SLOT, "Montag");
+
+        final HandlerInput inputMock = TestUtil.mockHandlerInput(slots, sessionAttributes, null, null);
+        final Optional<Response> res = addToDoOnWeekDayHandler.handle(inputMock);
+
+        assertTrue(res.isPresent());
+        final Response response = res.get();*/
+    }
 
 
 }

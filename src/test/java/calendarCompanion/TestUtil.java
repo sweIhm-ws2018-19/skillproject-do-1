@@ -35,25 +35,30 @@ public class TestUtil {
 //		//when(input.getRequestEnvelope()).thenReturn(requestEnvelopeMock);
 //		return input;
 //	}
-	
-	public static HandlerInput mockHandlerInput(String favoriteColor, Map<String, Object> sessionAttributes,
-			Map<String, Object> persistentAttributes, Map<String, Object> requestAttributes) {
+
+	public static HandlerInput mockHandlerInput(Map<String, String> slots, Map<String, Object> sessionAttributes, Map<String, Object> persistentAttributes, Map<String, Object> requestAttributes) {
 		final AttributesManager attributesManagerMock = Mockito.mock(AttributesManager.class);
 		when(attributesManagerMock.getSessionAttributes()).thenReturn(sessionAttributes);
 		when(attributesManagerMock.getPersistentAttributes()).thenReturn(persistentAttributes);
 		when(attributesManagerMock.getRequestAttributes()).thenReturn(requestAttributes);
- //Mock Slots
-//		final RequestEnvelope requestEnvelopeMock = RequestEnvelope.builder()
-//				.withRequest(IntentRequest.builder().withIntent(Intent.builder()
-//						.putSlotsItem(PhrasesAndConstants.COLOR_SLOT, Slot.builder()
-//								.withName(PhrasesAndConstants.COLOR_SLOT).withValue(favoriteColor).build())
-//						.build()).build())
-//				.build();
- //Mock Handler input attributes
+		final Intent.Builder intentBuilder = Intent.builder();
+		if (slots != null){
+			slots.forEach((key, value) ->
+					intentBuilder.putSlotsItem(key, Slot.builder().withName(key).withValue(value).build())
+			);
+		}
+
+		// Mock Slots
+		final RequestEnvelope requestEnvelopeMock = RequestEnvelope.builder()
+				.withRequest(IntentRequest.builder()
+						.withIntent(intentBuilder.build())
+						.build())
+				.build();
+		// Mock Handler input attributes
 		final HandlerInput input = Mockito.mock(HandlerInput.class);
 		when(input.getAttributesManager()).thenReturn(attributesManagerMock);
 		when(input.getResponseBuilder()).thenReturn(new ResponseBuilder());
-		//when(input.getRequestEnvelope()).thenReturn(requestEnvelopeMock);
+		when(input.getRequestEnvelope()).thenReturn(requestEnvelopeMock);
 		return input;
 	}
 
