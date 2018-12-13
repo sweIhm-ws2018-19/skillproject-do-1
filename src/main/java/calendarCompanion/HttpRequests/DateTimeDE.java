@@ -87,6 +87,7 @@ public class DateTimeDE {
             case("12"):
                 this.month = "Dezember";
                 break;
+                default: this.month = "Month not found";
         }
     }
 
@@ -98,9 +99,7 @@ public class DateTimeDE {
         return month;
     }
 
-    public String getYear() {
-        return year;
-    }
+   // public String getYear() { return year; }
 
     public String getTime() {
         return time;
