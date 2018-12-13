@@ -36,10 +36,12 @@
             }
           ],
           "samples": [
+            "am {Wochentag} muss ich {ToDo}",
+            "erstelle {ToDo} am {Wochentag}",
+            "{Wochentag} muss ich {ToDo}",
             "am {Wochentag} gehe ich {ToDo}",
             "am {Wochentag} muss ich {ToDo} erledigen",
-            "erstelle ein {ToDo} am {Wochentag}",
-            "füge {ToDo} am {Wochentag} hinzu"
+            "erstelle ein {ToDo} am {Wochentag}"
           ]
         },
         {
@@ -70,7 +72,7 @@
             }
           ],
           "samples": [
-            "lösche {ToDo} am {Wochentag}"
+            "lÃ¶sche {ToDo} am {Wochentag}"
           ]
         }
       ],

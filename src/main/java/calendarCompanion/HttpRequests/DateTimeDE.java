@@ -52,7 +52,7 @@ public class DateTimeDE {
         List<String> formattedResponseTimeAndDate = Arrays.asList(dnt.getFormatted().split(" "));
         List<String> dateList = Arrays.asList(formattedResponseTimeAndDate.get(0).split("-"));
 
-        this.time = formattedResponseTimeAndDate.get(1);
+        this.time = formattedResponseTimeAndDate.get(1).substring(0,5);
         this.year = dateList.get(0);
         this.day = dateList.get(2);
 
