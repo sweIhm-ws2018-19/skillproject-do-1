@@ -16,6 +16,7 @@ public class LaunchRequestHandler implements RequestHandler {
     @Override
     public boolean canHandle(HandlerInput input) {
         return input.matches(Predicates.requestType(LaunchRequest.class));
+        //input.getAttributesManager().getSessionAttributes();
     }
 
     @Override

@@ -36,6 +36,7 @@
             }
           ],
           "samples": [
+            "erstelle ein todo am {Wochentag} und zwar füge {ToDo} meiner liste hinzu",
             "am {Wochentag} muss ich {ToDo}",
             "erstelle {ToDo} am {Wochentag}",
             "{Wochentag} muss ich {ToDo}",
@@ -53,6 +54,7 @@
             }
           ],
           "samples": [
+            "was muss ich am {Wochentag} machen",
             "was muss ich {Wochentag} erledigen",
             "sage mir meine Todos am {Wochentag}",
             "was steht am {Wochentag} an ",

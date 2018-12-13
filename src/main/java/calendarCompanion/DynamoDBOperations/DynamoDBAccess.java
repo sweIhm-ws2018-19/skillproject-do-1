@@ -19,25 +19,24 @@ public class DynamoDBAccess {
     private ToDoListItemOnWeekDay partitionKey = new ToDoListItemOnWeekDay();
     private String toDo;
     private String weekDay;
-    private String weekDayForDBAccess;
 
     public DynamoDBAccess(){}
 
     public DynamoDBAccess(String weekDay,String toDo) {
         this.toDo = toDo;
         this.weekDay = weekDay;
-        this.weekDayForDBAccess = Character.toUpperCase(weekDay.charAt(0)) + weekDay.substring(1);
-        this.weekDayForDBAccess = weekDayForDBAccess.trim();
+        this.weekDay = Character.toUpperCase(weekDay.charAt(0)) + weekDay.substring(1);
+        this.weekDay = weekDay.trim();
     }
 
     public DynamoDBAccess(String weekDay){
         this.weekDay = weekDay;
-        this.weekDayForDBAccess = Character.toUpperCase(weekDay.charAt(0)) + weekDay.substring(1);
-        this.weekDayForDBAccess = weekDayForDBAccess.trim();
+        this.weekDay = Character.toUpperCase(weekDay.charAt(0)) + weekDay.substring(1);
+        this.weekDay = weekDay.trim();
     }
 
     public List<String> queryToDos() {
-        partitionKey.setWeekDay(weekDayForDBAccess);
+        partitionKey.setWeekDay(weekDay);
         DynamoDBQueryExpression<ToDoListItemOnWeekDay> queryExpression =
                 new DynamoDBQueryExpression<ToDoListItemOnWeekDay>().withHashKeyValues(partitionKey);
         List<ToDoListItemOnWeekDay> toDoList = mapper.query(ToDoListItemOnWeekDay.class, queryExpression);
@@ -48,7 +47,7 @@ public class DynamoDBAccess {
     }
 
     public void addToDo() {
-        partitionKey.setWeekDay(weekDayForDBAccess);
+        partitionKey.setWeekDay(weekDay);
         partitionKey.setToDo(toDo);
         mapper.save(partitionKey);
     }
