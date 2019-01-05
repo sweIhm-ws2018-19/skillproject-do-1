@@ -2,9 +2,6 @@ package calendarCompanion.HttpRequests;
 
 import calendarCompanion.model.DateAndTime;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.Gson;
-import jdk.nashorn.internal.objects.annotations.Getter;
-import jdk.nashorn.internal.objects.annotations.Setter;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -18,9 +15,10 @@ public class DateTimeDE {
 
     private String day;
     private String month;
-    private String year;
+    //private String year;
     private String time;
 
+    //Ctor
     public DateTimeDE(){}
     
     public void httpGetTimeAndDate() throws IOException{
