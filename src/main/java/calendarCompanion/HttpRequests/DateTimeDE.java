@@ -2,7 +2,6 @@ package calendarCompanion.HttpRequests;
 
 import calendarCompanion.model.DateAndTime;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
