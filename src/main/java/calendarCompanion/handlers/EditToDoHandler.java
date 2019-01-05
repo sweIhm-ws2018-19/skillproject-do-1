@@ -7,20 +7,19 @@ import com.amazon.ask.dispatcher.request.handler.RequestHandler;
 import com.amazon.ask.model.*;
 import com.amazon.ask.response.ResponseBuilder;
 
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-
 import static com.amazon.ask.request.Predicates.intentName;
 
-public class GetToDosOnWeekDaysHandler implements RequestHandler {
+public class EditToDoHandler implements RequestHandler {
     @Override
     public boolean canHandle(HandlerInput input) {
-        return input.matches(intentName("GetToDosOnWeekDayIntent"));
+        return input.matches(intentName("EditToDoIntent"));
     }
 
     private DynamoDBAccess dynamoDBAccess = new DynamoDBAccess();
+    private String responseText;
 
     @Override
     public Optional<Response> handle(HandlerInput input) {
@@ -28,25 +27,17 @@ public class GetToDosOnWeekDaysHandler implements RequestHandler {
         IntentRequest intentRequest = (IntentRequest) request;      //castet den request in einen intentrequest
         Intent intent = intentRequest.getIntent();      //welcher Intent ist es
         Map<String, Slot> slots = intent.getSlots();    //holt sich die slotListe
-        String responseText, toDoItemString;
-
-        // holt sich den Slot aus dem intent. zB Montag
-        Slot weekDay = slots.get(PhrasesAndConstants.WOCHENTAG_SLOT);
+        Slot weekDaySource = slots.get(PhrasesAndConstants.WOCHENTAG_SLOT);
+        Slot weekDayTarget = slots.get(PhrasesAndConstants.WOCHENTAG_ZIEL_SLOT);
+        Slot toDo = slots.get(PhrasesAndConstants.TODO_SLOT);
         ResponseBuilder responseBuilder = input.getResponseBuilder();
 
-        if (weekDay.getValue() != null && weekDay.getResolutions().toString().contains("ER_SUCCESS_MATCH")) {
-            List<String> toDos;
-            toDos = dynamoDBAccess.queryToDos(weekDay.getValue());
-
-            if (toDos.isEmpty())
-                responseText = String.format("am %s hast du rein gar nichts vor!", weekDay.getValue());
-            else {
-                toDoItemString = String.join(", ", toDos);
-                responseText =
-                        String.format("folgende ToDos stehen am %s auf der Liste : %s", weekDay.getValue(), toDoItemString);
-            }
+        if ((weekDaySource.getValue() != null && weekDaySource.getResolutions().toString().contains("ER_SUCCESS_MATCH")) &&
+                (weekDayTarget.getValue() != null && weekDayTarget.getResolutions().toString().contains("ER_SUCCESS_MATCH"))) {
+            dynamoDBAccess.moveToDo(weekDaySource.getValue(), weekDayTarget.getValue(), toDo.getValue());
+            responseText = String.format("%s wurde von %s auf %s verschoben. Glückwunsch du aufschieber!", toDo.getValue(), weekDaySource.getValue(), weekDayTarget.getValue());
         } else {
-            responseText = "Bitte einen Wochentag nennen, von dem die ToDoListe aufgerufen werden soll. z.B: was steht am Montag an?";
+            responseText = "bitte sage etwas wie: verschiebe Sport von Dienstag auf Mittwoch.";
         }
         responseBuilder.withSimpleCard(PhrasesAndConstants.CARD_TITLE, responseText)
                 .withSpeech(responseText)

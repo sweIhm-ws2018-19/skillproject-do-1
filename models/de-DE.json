@@ -84,6 +84,27 @@
           "samples": [
             "lösche alle ToDos am {Wochentag}"
           ]
+        },
+        {
+          "name": "EditToDoIntent",
+          "slots": [
+            {
+              "name": "ToDo",
+              "type": "ToDoType"
+            },
+            {
+              "name": "Wochentag",
+              "type": "WochentagType"
+            },
+            {
+              "name": "WochenTagZiel",
+              "type": "WochentagType"
+            }
+          ],
+          "samples": [
+            "schiebe {ToDo} von {Wochentag} auf {WochenTagZiel}",
+            "verschiebe {ToDo} vom {Wochentag} auf {WochenTagZiel}"
+          ]
         }
       ],
       "types": [

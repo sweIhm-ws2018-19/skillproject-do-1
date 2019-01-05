@@ -20,10 +20,13 @@ public class DynamoDBAccess {
 
     public DynamoDBAccess(){}
 
+    private String formatDayForDB(String day){
+        day = Character.toUpperCase(day.charAt(0)) + day.substring(1);
+        return day.trim();
+    }
+
     public List<String> queryToDos(String weekDay) {
-        weekDay = Character.toUpperCase(weekDay.charAt(0)) + weekDay.substring(1);
-        weekDay = weekDay.trim();
-        partitionKey.setWeekDay(weekDay);
+        partitionKey.setWeekDay(formatDayForDB(weekDay));
         DynamoDBQueryExpression<ToDoListItemOnWeekDay> queryExpression =
                 new DynamoDBQueryExpression<ToDoListItemOnWeekDay>().withHashKeyValues(partitionKey);
         List<ToDoListItemOnWeekDay> toDoList = mapper.query(ToDoListItemOnWeekDay.class, queryExpression);
@@ -34,28 +37,27 @@ public class DynamoDBAccess {
     }
 
     public void addToDo(String weekDay,String toDo) {
-        weekDay = Character.toUpperCase(weekDay.charAt(0)) + weekDay.substring(1);
-        weekDay = weekDay.trim();
-        partitionKey.setWeekDay(weekDay);
+        partitionKey.setWeekDay(formatDayForDB(weekDay));
         partitionKey.setToDo(toDo);
         mapper.save(partitionKey);
     }
 
     public void deleteToDo(String weekDay, String toDo) {
-        weekDay = Character.toUpperCase(weekDay.charAt(0)) + weekDay.substring(1);
-        weekDay = weekDay.trim();
-        partitionKey.setWeekDay(weekDay);
+        partitionKey.setWeekDay(formatDayForDB(weekDay));
         partitionKey.setToDo(toDo);
         mapper.delete(partitionKey);
     }
 
     public void deleteAllToDos(String weekDay){
-        weekDay = Character.toUpperCase(weekDay.charAt(0)) + weekDay.substring(1);
-        weekDay = weekDay.trim();
         List<String> ToDos = this.queryToDos(weekDay);
-        for (String i : ToDos){
+        for (String i : ToDos) {
             partitionKey.setToDo(i);
             mapper.delete(partitionKey);
         }
+    }
+
+    public void moveToDo(String weekDaySource, String weekDayTarget, String toDo){
+        deleteToDo(weekDaySource,toDo);
+        addToDo(weekDayTarget,toDo);
     }
 }

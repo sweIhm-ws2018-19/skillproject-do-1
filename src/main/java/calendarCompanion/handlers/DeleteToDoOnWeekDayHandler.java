@@ -27,13 +27,13 @@ public class DeleteToDoOnWeekDayHandler implements RequestHandler {
         IntentRequest intentRequest = (IntentRequest) request;      //castet den request in einen intentrequest
         Intent intent = intentRequest.getIntent();      //welcher Intent ist es
         Map<String, Slot> slots = intent.getSlots();    //holt sich die slotListe
-        Slot wochenTag = slots.get(PhrasesAndConstants.WOCHENTAG_SLOT);         // holt sich den Slot aus dem intent. zB Montag
+        Slot weekDay = slots.get(PhrasesAndConstants.WOCHENTAG_SLOT);         // holt sich den Slot aus dem intent. zB Montag
         Slot toDo = slots.get(PhrasesAndConstants.TODO_SLOT);
         ResponseBuilder responseBuilder = input.getResponseBuilder();
 
-        if (wochenTag.getValue() != null && wochenTag.getResolutions().toString().contains("ER_SUCCESS_MATCH")) {
-            dynamoDBAccess.deleteToDo(wochenTag.getValue(),toDo.getValue());
-            responseText = String.format("%s wurde von deiner ToDoListe am %s entfernt.", toDo.getValue(), wochenTag.getValue());
+        if (weekDay.getValue() != null && weekDay.getResolutions().toString().contains("ER_SUCCESS_MATCH")) {
+            dynamoDBAccess.deleteToDo(weekDay.getValue(),toDo.getValue());
+            responseText = String.format("%s wurde von deiner ToDoListe am %s entfernt.", toDo.getValue(), weekDay.getValue());
         } else {
             responseText = "bitte Wochentag nennen, an dem das ToDo hinzugefügt werden soll.";
 
