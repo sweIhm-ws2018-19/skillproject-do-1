@@ -1,8 +1,6 @@
 package calendarCompanion;
 
 import calendarCompanion.handlers.AddToDoHelpIntentHandler;
-import calendarCompanion.handlers.GetToDosHelpIntentHandler;
-import calendarCompanion.handlers.HelpIntentHandler;
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.model.Response;
 import org.junit.Before;

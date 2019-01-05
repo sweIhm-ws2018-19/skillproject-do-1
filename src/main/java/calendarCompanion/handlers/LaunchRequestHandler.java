@@ -25,7 +25,7 @@ public class LaunchRequestHandler implements RequestHandler {
             dateTimeDe.httpGetTimeAndDate();
         }catch(Exception e)
         {
-            System.out.println("httpGet: " + e.getMessage());
+            System.err.println("httpGet: " + e.getMessage());
         }
         String month = dateTimeDe.getMonth();
         String day = dateTimeDe.getDay();
