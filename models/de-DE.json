@@ -68,7 +68,6 @@
             }
           ],
           "samples": [
-            "füge {ToDo} am {Wochentag} hinzu",
             "{Wochentag} muss ich {ToDo}",
             "am {Wochentag} muss ich {ToDo}"
           ]
@@ -82,7 +81,7 @@
             }
           ],
           "samples": [
-            "lösche alle ToDos am {Wochentag}"
+            "entferne alle termine am {Wochentag}"
           ]
         }
       ],
