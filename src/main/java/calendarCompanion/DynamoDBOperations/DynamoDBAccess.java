@@ -17,25 +17,12 @@ public class DynamoDBAccess {
             .build();
     private DynamoDBMapper mapper = new DynamoDBMapper(client);
     private ToDoListItemOnWeekDay partitionKey = new ToDoListItemOnWeekDay();
-    private String toDo;
-    private String weekDay;
 
     public DynamoDBAccess(){}
 
-    public DynamoDBAccess(String weekDay,String toDo) {
-        this.toDo = toDo;
-        this.weekDay = weekDay;
-        this.weekDay = Character.toUpperCase(weekDay.charAt(0)) + weekDay.substring(1);
-        this.weekDay = weekDay.trim();
-    }
-
-    public DynamoDBAccess(String weekDay){
-        this.weekDay = weekDay;
-        this.weekDay = Character.toUpperCase(weekDay.charAt(0)) + weekDay.substring(1);
-        this.weekDay = weekDay.trim();
-    }
-
-    public List<String> queryToDos() {
+    public List<String> queryToDos(String weekDay) {
+        weekDay = Character.toUpperCase(weekDay.charAt(0)) + weekDay.substring(1);
+        weekDay = weekDay.trim();
         partitionKey.setWeekDay(weekDay);
         DynamoDBQueryExpression<ToDoListItemOnWeekDay> queryExpression =
                 new DynamoDBQueryExpression<ToDoListItemOnWeekDay>().withHashKeyValues(partitionKey);
@@ -46,16 +33,18 @@ public class DynamoDBAccess {
         return toDos;
     }
 
-    public void addToDo() {
+    public void addToDo(String weekDay,String toDo) {
+        weekDay = Character.toUpperCase(weekDay.charAt(0)) + weekDay.substring(1);
+        weekDay = weekDay.trim();
         partitionKey.setWeekDay(weekDay);
         partitionKey.setToDo(toDo);
         mapper.save(partitionKey);
     }
 
-    public void deleteToDo() {
-        String weekDayUpperCase = Character.toUpperCase(weekDay.charAt(0)) + weekDay.substring(1);
-        weekDayUpperCase = weekDayUpperCase.trim();
-        partitionKey.setWeekDay(weekDayUpperCase);
+    public void deleteToDo(String weekDay, String toDo) {
+        weekDay = Character.toUpperCase(weekDay.charAt(0)) + weekDay.substring(1);
+        weekDay = weekDay.trim();
+        partitionKey.setWeekDay(weekDay);
         partitionKey.setToDo(toDo);
         mapper.delete(partitionKey);
     }
