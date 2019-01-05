@@ -24,28 +24,6 @@
           "samples": []
         },
         {
-          "name": "AddToDoOnWeekDayIntent",
-          "slots": [
-            {
-              "name": "Wochentag",
-              "type": "WochentagType"
-            },
-            {
-              "name": "ToDo",
-              "type": "ToDoType"
-            }
-          ],
-          "samples": [
-            "erstelle ein todo am {Wochentag} und zwar füge {ToDo} meiner liste hinzu",
-            "am {Wochentag} muss ich {ToDo}",
-            "erstelle {ToDo} am {Wochentag}",
-            "{Wochentag} muss ich {ToDo}",
-            "am {Wochentag} gehe ich {ToDo}",
-            "am {Wochentag} muss ich {ToDo} erledigen",
-            "erstelle ein {ToDo} am {Wochentag}"
-          ]
-        },
-        {
           "name": "GetToDosOnWeekDayIntent",
           "slots": [
             {
@@ -75,6 +53,23 @@
           ],
           "samples": [
             "lösche {ToDo} am {Wochentag}"
+          ]
+        },
+        {
+          "name": "AddToDoOnWeekDayIntent",
+          "slots": [
+            {
+              "name": "ToDo",
+              "type": "ToDoType"
+            },
+            {
+              "name": "Wochentag",
+              "type": "WochentagType"
+            }
+          ],
+          "samples": [
+            "{Wochentag} muss ich {ToDo}",
+            "am {Wochentag} muss ich {ToDo}"
           ]
         }
       ],
