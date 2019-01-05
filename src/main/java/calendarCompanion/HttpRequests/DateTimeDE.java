@@ -14,7 +14,6 @@ public class DateTimeDE {
 
     private String day;
     private String month;
-    //private String year;
     private String time;
 
     public DateTimeDE() {
