@@ -20,7 +20,7 @@ public class GetToDosOnWeekDaysHandler implements RequestHandler {
         return input.matches(intentName("GetToDosOnWeekDayIntent"));
     }
 
-    private DynamoDBAccess dynamoDBAccess;
+    private DynamoDBAccess dynamoDBAccess = new DynamoDBAccess();
 
     @Override
     public Optional<Response> handle(HandlerInput input) {
@@ -36,8 +36,7 @@ public class GetToDosOnWeekDaysHandler implements RequestHandler {
 
         if (wochenTag.getValue() != null && wochenTag.getResolutions().toString().contains("ER_SUCCESS_MATCH")) {
             List<String> toDos;
-            dynamoDBAccess = new DynamoDBAccess(wochenTag.getValue());
-            toDos = dynamoDBAccess.queryToDos();
+            toDos = dynamoDBAccess.queryToDos(wochenTag.getValue());
 
             if (toDos.isEmpty())
                 responseText = String.format("am %s hast du rein gar nichts vor!", wochenTag.getValue());

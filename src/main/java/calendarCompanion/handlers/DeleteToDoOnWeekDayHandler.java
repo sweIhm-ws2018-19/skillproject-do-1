@@ -18,7 +18,7 @@ public class DeleteToDoOnWeekDayHandler implements RequestHandler {
         return input.matches(intentName("DeleteToDoOnWeekDayIntent"));
     }
 
-    private DynamoDBAccess dynamoDBAccess;
+    private DynamoDBAccess dynamoDBAccess = new DynamoDBAccess();
     private String responseText;
 
     @Override
@@ -32,8 +32,7 @@ public class DeleteToDoOnWeekDayHandler implements RequestHandler {
         ResponseBuilder responseBuilder = input.getResponseBuilder();
 
         if (wochenTag.getValue() != null && wochenTag.getResolutions().toString().contains("ER_SUCCESS_MATCH")) {
-            dynamoDBAccess = new DynamoDBAccess(wochenTag.getValue(),toDo.getValue());
-            dynamoDBAccess.deleteToDo();
+            dynamoDBAccess.deleteToDo(wochenTag.getValue(),toDo.getValue());
             responseText = String.format("%s wurde von deiner ToDoListe am %s entfernt.", toDo.getValue(), wochenTag.getValue());
         } else {
             responseText = "bitte Wochentag nennen, an dem das ToDo hinzugefügt werden soll.";

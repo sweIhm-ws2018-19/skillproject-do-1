@@ -19,7 +19,7 @@ public class AddToDoOnWeekDayHandler implements RequestHandler {
         return input.matches(intentName("AddToDoOnWeekDayIntent"));
     }
 
-    private DynamoDBAccess dynamoDBAccess;
+    private DynamoDBAccess dynamoDBAccess = new DynamoDBAccess();
     private String responseText;
 
     @Override
@@ -34,8 +34,7 @@ public class AddToDoOnWeekDayHandler implements RequestHandler {
 
         if (wochenTag.getValue() != null && wochenTag.getResolutions().toString().contains("ER_SUCCESS_MATCH")) {
 
-            dynamoDBAccess = new DynamoDBAccess(wochenTag.getValue(),toDo.getValue());
-            dynamoDBAccess.addToDo();
+            dynamoDBAccess.addToDo(wochenTag.getValue(),toDo.getValue());
             responseText = String.format("%s wurde zu deiner ToDoListe am %s hinzugefügt.", toDo.getValue(), wochenTag.getValue());
         } else {
             responseText = "bitte Wochentag nennen, an dem das ToDo hinzugefügt werden soll.";
