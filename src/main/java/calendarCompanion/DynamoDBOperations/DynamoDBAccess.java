@@ -48,4 +48,14 @@ public class DynamoDBAccess {
         partitionKey.setToDo(toDo);
         mapper.delete(partitionKey);
     }
+
+    public void deleteAllToDos(String weekDay){
+        weekDay = Character.toUpperCase(weekDay.charAt(0)) + weekDay.substring(1);
+        weekDay = weekDay.trim();
+        List<String> ToDos = this.queryToDos(weekDay);
+        for (String i : ToDos){
+            partitionKey.setToDo(i);
+            mapper.delete(partitionKey);
+        }
+    }
 }
