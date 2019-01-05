@@ -68,7 +68,6 @@
             }
           ],
           "samples": [
-            "füge {ToDo} am {Wochentag} hinzu",
             "{Wochentag} muss ich {ToDo}",
             "am {Wochentag} muss ich {ToDo}"
           ]
