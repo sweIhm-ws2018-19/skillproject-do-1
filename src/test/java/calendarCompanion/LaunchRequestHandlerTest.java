@@ -56,7 +56,7 @@ public void testCanHandle() {
         String time = dateTimeDe.getTime();
         HandlerInput input = TestUtil.mockInputWithoutSlot();
         Response response = handler.handle(input).get();
-        String LAUNCH_PHRASE = "Hallo, es ist " + month + " der " + day + "te, "+ time + " Uhr. Ich bin dein persönlicher Calendar Companion. Mit mir kannst du deinen Kalender erstellen und managen. Möchtest du ein ToDo, oder einen Termin hinzufügen?";
+        String LAUNCH_PHRASE = "Hallo, es ist " + month + " der " + day + "te, "+ time + " Uhr. Ich bin dein persönlicher Calendar Companion. Mit mir kannst du deinen Kalender erstellen und managen. Möchtest du ein To-Do, oder einen Termin hinzufügen?";
         assertTrue(response.getOutputSpeech().toString().contains(LAUNCH_PHRASE));
     }
 

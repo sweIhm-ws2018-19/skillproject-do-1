@@ -19,7 +19,6 @@ public class DeleteAllToDosOnWeekDayHandler implements RequestHandler {
     }
 
     private DynamoDBAccess dynamoDBAccess = new DynamoDBAccess();
-    private String responseText;
 
     @Override
     public Optional<Response> handle(HandlerInput input) {
@@ -29,12 +28,13 @@ public class DeleteAllToDosOnWeekDayHandler implements RequestHandler {
         Map<String, Slot> slots = intent.getSlots();    //holt sich die slotListe
         Slot wochenTag = slots.get(PhrasesAndConstants.WOCHENTAG_SLOT);         // holt sich den Slot aus dem intent. zB Montag
         ResponseBuilder responseBuilder = input.getResponseBuilder();
+        String responseText;
 
         if (wochenTag.getValue() != null && wochenTag.getResolutions().toString().contains("ER_SUCCESS_MATCH")) {
             dynamoDBAccess.deleteAllToDos(wochenTag.getValue());
-            responseText = String.format("Es wurden alle ToDos von deiner Liste am %s entfernt", wochenTag.getValue());
+            responseText = String.format("Es wurden alle To-Dos von deiner Liste am %s entfernt", wochenTag.getValue());
         } else {
-            responseText = "bitte Wochentag nennen, an dem alle ToDos gelöscht werden sollen.";
+            responseText = "bitte Wochentag nennen, an dem alle To-Dos gelöscht werden sollen.";
 
         }
         responseBuilder.withSimpleCard(PhrasesAndConstants.CARD_TITLE, responseText)

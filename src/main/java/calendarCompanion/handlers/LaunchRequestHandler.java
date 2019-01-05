@@ -31,8 +31,8 @@ public class LaunchRequestHandler implements RequestHandler {
         String day = dateTimeDe.getDay();
         String time = dateTimeDe.getTime();
 
-        String speechText = "Hallo, es ist " + month + " der " + day + "te, "+ time + " Uhr. Ich bin dein persönlicher Calendar Companion. Mit mir kannst du deinen Kalender erstellen und managen. Möchtest du ein ToDo, oder einen Termin hinzufügen?";
-        String repromtText = "Bitte sage mir, ob du einen Termin erstellen willst, oder ein ToDo zu deiner Liste hinzufügen möchtest. Du kannst auch deine Termine und ToDoS für heute erfragen. Wenn du Hilfe brauchst, sag Hilfe";
+        String speechText = "Hallo, es ist " + month + " der " + day + "te, "+ time + " Uhr. Ich bin dein persönlicher Calendar Companion. Mit mir kannst du deinen Kalender erstellen und managen. Möchtest du ein To-Do, oder einen Termin hinzufügen?";
+        String repromtText = "Bitte sage mir, ob du einen Termin erstellen willst, oder ein To-Do zu deiner Liste hinzufügen möchtest. Du kannst auch deine Termine und To-DoS für heute erfragen. Wenn du Hilfe brauchst, sag Hilfe";
 
 
         return input.getResponseBuilder()

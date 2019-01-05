@@ -43,10 +43,10 @@ public class GetToDosOnWeekDaysHandler implements RequestHandler {
             else {
                 toDoItemString = String.join(", ", toDos);
                 responseText =
-                        String.format("folgende ToDos stehen am %s auf der Liste : %s", wochenTag.getValue(), toDoItemString);
+                        String.format("folgende To-Dos stehen am %s auf der Liste : %s", wochenTag.getValue(), toDoItemString);
             }
         } else {
-            responseText = "Bitte einen Wochentag nennen, von dem die ToDoListe aufgerufen werden soll. z.B: was steht am Montag an?";
+            responseText = "Bitte einen Wochentag nennen, von dem die To-Do-Liste aufgerufen werden soll. z.B: was steht am Montag an?";
         }
         responseBuilder.withSimpleCard(PhrasesAndConstants.CARD_TITLE, responseText)
                 .withSpeech(responseText)

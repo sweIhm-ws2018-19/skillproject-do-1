@@ -20,7 +20,6 @@ public class AddToDoOnWeekDayHandler implements RequestHandler {
     }
 
     private DynamoDBAccess dynamoDBAccess = new DynamoDBAccess();
-    private String responseText;
 
     @Override
     public Optional<Response> handle(HandlerInput input) {
@@ -31,13 +30,14 @@ public class AddToDoOnWeekDayHandler implements RequestHandler {
         Slot wochenTag = slots.get(PhrasesAndConstants.WOCHENTAG_SLOT);         // holt sich den Slot aus dem intent. zB Montag
         Slot toDo = slots.get(PhrasesAndConstants.TODO_SLOT);
         ResponseBuilder responseBuilder = input.getResponseBuilder();
+        String responseText;
 
         if (wochenTag.getValue() != null && wochenTag.getResolutions().toString().contains("ER_SUCCESS_MATCH")) {
 
             dynamoDBAccess.addToDo(wochenTag.getValue(),toDo.getValue());
-            responseText = String.format("%s wurde zu deiner ToDoListe am %s hinzugefügt.", toDo.getValue(), wochenTag.getValue());
+            responseText = String.format("%s wurde zu deiner To-DoListe am %s hinzugefügt.", toDo.getValue(), wochenTag.getValue());
         } else {
-            responseText = "bitte Wochentag nennen, an dem das ToDo hinzugefügt werden soll.";
+            responseText = "bitte Wochentag nennen, an dem das To-Do hinzugefügt werden soll.";
         }
         responseBuilder.withSimpleCard(PhrasesAndConstants.CARD_TITLE, responseText)
                 .withSpeech(responseText)

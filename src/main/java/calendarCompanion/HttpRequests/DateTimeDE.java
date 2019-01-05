@@ -38,12 +38,10 @@ public class DateTimeDE {
 
         ObjectMapper mapper = new ObjectMapper();
         DateAndTime dnt = mapper.readValue(response.toString(), DateAndTime.class);
-        //System.out.println(dnt.getFormatted());
         List<String> formattedResponseTimeAndDate = Arrays.asList(dnt.getFormatted().split(" "));
         List<String> dateList = Arrays.asList(formattedResponseTimeAndDate.get(0).split("-"));
 
         this.time = formattedResponseTimeAndDate.get(1).substring(0,5);
-        //this.year = dateList.get(0);
         this.day = dateList.get(2);
 
         switch(dateList.get(1)){
@@ -94,8 +92,6 @@ public class DateTimeDE {
     public String getMonth() {
         return month;
     }
-
-   // public String getYear() { return year; }
 
     public String getTime() {
         return time;
