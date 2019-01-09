@@ -5,3 +5,5 @@ Der Calendar Companion übernimmt die Kontrolle über deinen Kalender. Er hilft 
 
 ## Status
 <img width="307" alt="travic-ci build" src="https://user-images.githubusercontent.com/43847296/50894187-e1a9c300-1402-11e9-9384-6080c25622a6.PNG">
+
+<img width="162" alt="qualitygate" src="https://user-images.githubusercontent.com/43847296/50909526-534a3700-142c-11e9-9337-78cdef6d8d04.PNG">
