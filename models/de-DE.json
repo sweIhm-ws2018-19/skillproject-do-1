@@ -24,6 +24,25 @@
           "samples": []
         },
         {
+          "name": "AddToDoOnWeekDayIntent",
+          "slots": [
+            {
+              "name": "Wochentag",
+              "type": "WochentagType"
+            },
+            {
+              "name": "ToDo",
+              "type": "ToDoType"
+            }
+          ],
+          "samples": [
+            "am {Wochentag} gehe ich {ToDo}",
+            "am {Wochentag} muss ich {ToDo} erledigen",
+            "erstelle ein {ToDo} am {Wochentag}",
+            "füge {ToDo} am {Wochentag} hinzu"
+          ]
+        },
+        {
           "name": "GetToDosOnWeekDayIntent",
           "slots": [
             {
@@ -32,7 +51,6 @@
             }
           ],
           "samples": [
-            "was muss ich am {Wochentag} machen",
             "was muss ich {Wochentag} erledigen",
             "sage mir meine Todos am {Wochentag}",
             "was steht am {Wochentag} an ",
@@ -56,32 +74,24 @@
           ]
         },
         {
-          "name": "AddToDoOnWeekDayIntent",
-          "slots": [
-            {
-              "name": "ToDo",
-              "type": "ToDoType"
-            },
-            {
-              "name": "Wochentag",
-              "type": "WochentagType"
-            }
-          ],
+          "name": "AddToDoHelpIntentHandler",
+          "slots": [],
           "samples": [
-            "{Wochentag} muss ich {ToDo}",
-            "am {Wochentag} muss ich {ToDo}"
+            "Add Hilfe"
           ]
         },
         {
-          "name": "DeleteAllToDosOnWeekDayIntent",
-          "slots": [
-            {
-              "name": "Wochentag",
-              "type": "WochentagType"
-            }
-          ],
+          "name": "DeleteToDoHelpIntentHandler",
+          "slots": [],
           "samples": [
-            "entferne alle termine am {Wochentag}"
+            "Delete Hilfe"
+          ]
+        },
+        {
+          "name": "GetToDosHelpIntentHandler",
+          "slots": [],
+          "samples": [
+            "Get Hilfe"
           ]
         }
       ],
