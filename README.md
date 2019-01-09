@@ -10,3 +10,6 @@ Der Calendar Companion übernimmt die Kontrolle über deinen Kalender. Er hilft 
 
 ## Ergebnis
 ![classdiagrammresultsen](https://user-images.githubusercontent.com/43847362/50868739-f3b74180-13c1-11e9-9c9b-4b261937a17e.PNG)
+
+## Erfahrung
+Obwohl wir zusammen gut im Team gearbeitet haben, gibt es viele Probleme, wenn alle alleine auf seinem Rechner etwas machen. Zum Beispiel, gab es viele Probleme mit der Verbindung zwischen Front- und Backend Consolen zwischen uns. Wir hatten alle nicht den gleichen Account und hatten kleine Unterschiede, die am Ende viel Zeit weggenommen hat.
