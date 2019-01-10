@@ -16,7 +16,7 @@ Anwendungsfalldiagramm:
 
 ![image](https://user-images.githubusercontent.com/43847362/50950627-97d0e380-14bb-11e9-9308-cc983760574d.png)
 
-Klassendiamgramm:
+Klassendiagramm:
 
 ![image](https://user-images.githubusercontent.com/43847362/50939711-0a779a00-148f-11e9-9981-b14ebf8b7bd0.png)
 
