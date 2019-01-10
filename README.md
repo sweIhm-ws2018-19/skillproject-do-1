@@ -8,6 +8,8 @@ Der Calendar Companion übernimmt die Kontrolle über deinen Kalender. Er hilft 
 
 <img width="162" alt="qualitygate" src="https://user-images.githubusercontent.com/43847296/50909526-534a3700-142c-11e9-9337-78cdef6d8d04.PNG">
 
+Der Skill kann To-Dos für jeden Tag hinzufügen. Man kann den Wochentag nennen und erhält seine To-Dos für diesen Tag. Zudem kann man seine To-Dos löschen, einzelnt oder alle To-Dos auf ein Mal.
+
 ## Ergebnis
 
 Anwendungsfalldiagramm:
