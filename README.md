@@ -10,6 +10,8 @@ Der Calendar Companion übernimmt die Kontrolle über deinen Kalender. Er hilft 
 
 Der Skill kann To-Dos für jeden Tag hinzufügen. Man kann den Wochentag nennen und erhält seine To-Dos für diesen Tag. Zudem kann man seine To-Dos löschen, einzelnt oder alle To-Dos auf ein Mal.
 
+Beta-Testing Invite Link: https://www.amazon.com/ap/signin?showRmrMe=1&openid.return_to=https%3A%2F%2Falexa.amazon.com%2F%3Ffragment%3Dskills%2Fyour-skills%2Ftvt%2Ffb572328f09389581a75b2aba118f09d6f5f5072a47862355d3a6e20e42128d9ec0b0ab1ba70b707e50a164df191bad3c9a0a3a7a7a5cf644047b7f84138c4f81c3c3a2333236c927b08375fc4631c55b40cd45c6878d535a5f5d5301dbeed403ebde06d3b4d1b6be0f79230438a4126&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.assoc_handle=amzn_dp_project_dee&openid.mode=checkid_setup&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&
+
 ## Ergebnis
 
 Anwendungsfalldiagramm:
