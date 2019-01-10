@@ -9,6 +9,17 @@ Der Calendar Companion übernimmt die Kontrolle über deinen Kalender. Er hilft 
 <img width="162" alt="qualitygate" src="https://user-images.githubusercontent.com/43847296/50909526-534a3700-142c-11e9-9337-78cdef6d8d04.PNG">
 
 ## Ergebnis
+
+Anwendungsfalldiagramm:
+
+![image](https://user-images.githubusercontent.com/43847362/50950627-97d0e380-14bb-11e9-9308-cc983760574d.png)
+
+Klassendiamgramm:
+
+![image](https://user-images.githubusercontent.com/43847362/50939711-0a779a00-148f-11e9-9981-b14ebf8b7bd0.png)
+
+Klassendiagram-Ergebnis:
+
 ![classdiagrammresultsen](https://user-images.githubusercontent.com/43847362/50868739-f3b74180-13c1-11e9-9c9b-4b261937a17e.PNG)
 
 ## Erfahrung
